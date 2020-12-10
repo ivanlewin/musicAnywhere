@@ -14,7 +14,16 @@ const createRules = function() {
 
 	for(let site of supportedSites) {
 		const rule = {};
-		rule.actions = [new chrome.declarativeContent.ShowPageAction()];
+		rule.actions = [new chrome.declarativeContent.ShowPageAction(),
+			// new chrome.declarativeContent.setIcon({
+			//     path: {
+			//         "16": `images/icons/${site.icons}_16.png`,
+			//         "32": `images/icons/${site.icons}_32.png`,
+			//         "48": `images/icons/${site.icons}_48.png`,
+			//         "128": `images/icons/${site.icons}_128.png`
+			//     }
+			// })
+		];
 		
 		rule.conditions = [new chrome.declarativeContent.PageStateMatcher({
 			pageUrl: {hostContains: site.url}
