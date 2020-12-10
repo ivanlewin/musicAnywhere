@@ -38,3 +38,15 @@ setTimeout(() => {
 	searchIn(page);
 }, 3000);
 
+const searchIn = function(page) {
+	const searchURLs = {
+		"appleMusic": "https://music.apple.com/us/search?term=",
+		"genius": "https://genius.com/search?q=",
+		"musixmatch": "https://www.musixmatch.com/search/",
+		"spotify": "https://open.spotify.com/search/",
+		"youtube": "https://www.youtube.com/results?search_query=",
+		"youtubeMusic": "https://music.youtube.com/search?q=}"
+	}
+
+	console.log(searchURLs[page])
+}
