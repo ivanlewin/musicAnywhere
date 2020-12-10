@@ -8,6 +8,24 @@ const supportedSites = [
 	{url: "genius.com", icons: "genius"},
 	{url: "music.apple.com", icons: "apple-music"}
 ]
+
+const createRules = function() {
+	const rules = [];
+
+	for(let site of supportedSites) {
+		const rule = {};
+		rule.actions = [new chrome.declarativeContent.ShowPageAction()];
+		
+		rule.conditions = [new chrome.declarativeContent.PageStateMatcher({
+			pageUrl: {hostContains: site.url}
+		})];
+
+		rules.push(rule);
+	}
+	
+	return rules
+}
+
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.sync.set({color: '#3aa757'}, function() {
     console.log('The color is green.');
