@@ -30,3 +30,11 @@ const getTitle = function(page) {
 		return withoutFeat;
 	}
 }
+
+setTimeout(() => {
+	let page = "spotify";
+	const artist = getArtist(page);
+	const title = getTitle(page);
+	searchIn(page);
+}, 3000);
+
