@@ -15,3 +15,8 @@ changeColor.onclick = function(element) {
 				{code: 'document.body.style.backgroundColor = "' + color + '";'});
 	});
 };
+
+
+chrome.tabs.executeScript({
+	file: 'artists.js'
+});
