@@ -94,7 +94,9 @@ const getTitle = function(page) {
 			break;
 		}
 
-		return withoutFeat;
+		case "youtube": {
+			break;
+		}
 	}
 }
 
