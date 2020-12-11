@@ -106,7 +106,22 @@ const getTitle = function(page) {
 			withoutFeat = tag.textContent.trim();
 			break;
 		}
+
+		case "musixmatch": {
+			const selector = "title";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+			const playingTrack = tag.textContent;
+			const m = playingTrack.match(/(?<artists>.+) - (?<title>.+) Lyrics \| Musixmatch/)
+
+			const title = m.groups.title;
+			withoutFeat = title.replace(/ \(feat\..*\)/, "");
+
+			break;
+		}
 	}
+
+	return withoutFeat;
 }
 
 setTimeout(() => {
