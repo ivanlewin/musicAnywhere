@@ -9,7 +9,14 @@
 	},
 	"content_scripts": [
 		{
-			"matches": ["*://open.spotify.com/*"],
+			"matches": [
+				"*://youtube.com/",
+				"*://music.youtube.com/",
+				"*://open.spotify.com/",
+				"*://www.musixmatch.com/",
+				"*://genius.com/",
+				"*://music.apple.com/"
+			],
 			"js": ["artists.js"]
 		}
 	],
