@@ -139,3 +139,6 @@ const searchIn = function(page, title, artist) {
 }
 
 let page = "youtubeMusic";
+const artist = getArtist(page);
+const title = getTitle(page);
+const url = searchIn(page, title, artist);
