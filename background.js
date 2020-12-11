@@ -35,15 +35,13 @@ const createRules = function() {
 	return rules
 }
 
-chrome.runtime.onInstalled.addListener(function() {
-	chrome.storage.sync.set({color: '#3aa757'}, function() {
-		console.log('The color is green.');
-	});
-	chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+chrome.runtime.onInstalled.addListener(() => {
 	// Replace all rules ...
+	chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
+		// With new ones
 		chrome.declarativeContent.onPageChanged.addRules(createRules());
 	});
-});});
+});
 
 // https://stackoverflow.com/a/28765872
 const createSetIconAction = function(filename, callback) {
