@@ -42,7 +42,8 @@ setTimeout(() => {
 	searchIn(page);
 }, 3000);
 
-const searchIn = function(page) {
+const searchIn = function(page, title, artist) {
+	// Returns a URL to a search query for the song on the given page.
 	const searchURLs = {
 		"appleMusic": "https://music.apple.com/us/search?term=",
 		"genius": "https://genius.com/search?q=",
@@ -52,5 +53,5 @@ const searchIn = function(page) {
 		"youtubeMusic": "https://music.youtube.com/search?q="
 	}
 
-	console.log(searchURLs[page])
+	return searchURLs[page] + encodeURI(title + " " + artist);
 }
