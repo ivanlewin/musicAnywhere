@@ -13,6 +13,16 @@ const createRules = function() {
 	const rules = [];
 
 	for(let site of supportedSites) {
+		// createSetIconAction(site.icons, function(action) {
+		// 	const rule = {};
+		// 	rule.actions = [ new chrome.declarativeContent.ShowPageAction(), action ];
+		// 	rule.conditions = [new chrome.declarativeContent.PageStateMatcher({
+		// 		pageUrl: {hostContains: site.url}
+		// 	})];
+
+		// 	rules.push(rule);
+		// })
+		
 		const rule = {};
 		rule.actions = [new chrome.declarativeContent.ShowPageAction(),
 			// new chrome.declarativeContent.setIcon({
@@ -31,6 +41,8 @@ const createRules = function() {
 
 		rules.push(rule);
 	}
+
+	console.log(rules);
 	
 	return rules
 }
