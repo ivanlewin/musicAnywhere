@@ -2,7 +2,7 @@
 console.log("popupp.js");
 
 const getArtist = function(page) {
-	let firstArtist = "";
+	let artist = "";
 	switch(page) {
 
 		case "spotify": {
@@ -13,7 +13,7 @@ const getArtist = function(page) {
 			const m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
 	
 			const artists = m.groups.artists;
-			firstArtist = artists.split(",")[0];
+			artist = artists.split(",")[0];
 			break;
 		}
 
