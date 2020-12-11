@@ -40,6 +40,16 @@ const getArtist = function(page) {
 
 		// break;
 		// }
+
+		case "genius": {
+			const selector = "a[class*='primary_artist']";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+			artist = tag.textContent.trim();
+
+			break;
+		}
+
 	}
 }
 
