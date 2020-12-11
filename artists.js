@@ -137,3 +137,5 @@ const searchIn = function(page, title, artist) {
 
 	return searchURLs[page] + encodeURI(title + " " + artist);
 }
+
+let page = "youtubeMusic";
