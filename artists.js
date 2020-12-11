@@ -1,5 +1,5 @@
 'use strict';
-console.log("popupp.js");
+console.log("artists.js");
 
 const getArtist = function(page) {
 	let artist = "";
