@@ -5,7 +5,7 @@ const getArtist = function(page) {
 	let firstArtist = "";
 	switch(page) {
 
-		case "spotify":
+		case "spotify": {
 			const selector = "a[aria-label*='Now playing:']";
 			const tag = document.querySelector(selector);
 			if(!tag) return;
@@ -15,6 +15,7 @@ const getArtist = function(page) {
 			const artists = m.groups.artists;
 			firstArtist = artists.split(",")[0];
 			break;
+		}
 
 		return firstArtist;
 	}
