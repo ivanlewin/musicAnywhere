@@ -68,12 +68,21 @@ const getArtist = function(page) {
 }
 
 const getTitle = function(page) {
-	if(page === "spotify") {
-		const selector = "a[aria-label*='Now playing:']";
-		const tag = document.querySelector(selector);
-		if(!tag) return;
-		const playingTrack = tag.ariaLabel;
-		const m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
+	let withoutFeat = "";
+	switch(page) {
+
+		case "spotify": {
+			const selector = "a[aria-label*='Now playing:']";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+			const playingTrack = tag.ariaLabel;
+			const m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
+
+			const title = m.groups.title;
+			withoutFeat = title.replace(/ \(feat\..*\)/, "");
+
+			break;
+		}
 
 		const title = m.groups.title;
 		const withoutFeat = title.replace(/ \(feat\..*\)/, "");
