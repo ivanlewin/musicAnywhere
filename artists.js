@@ -17,7 +17,17 @@ const getArtist = function(page) {
 			break;
 		}
 
-		return firstArtist;
+		case "youtubeMusic": {
+			const selector = "div.content-info-wrapper.style-scope span.subtitle yt-formatted-string.ytmusic-player-bar";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+			const playingTrack = tag.title;
+			const m = playingTrack.match(/(?<artist>.+) •.* • 2020/)
+
+			artist = m.groups.artist;
+
+			break;
+		}
 	}
 }
 
