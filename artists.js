@@ -49,7 +49,7 @@ const searchIn = function(page) {
 		"musixmatch": "https://www.musixmatch.com/search/",
 		"spotify": "https://open.spotify.com/search/",
 		"youtube": "https://www.youtube.com/results?search_query=",
-		"youtubeMusic": "https://music.youtube.com/search?q=}"
+		"youtubeMusic": "https://music.youtube.com/search?q="
 	}
 
 	console.log(searchURLs[page])
