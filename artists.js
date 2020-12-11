@@ -50,7 +50,21 @@ const getArtist = function(page) {
 			break;
 		}
 
+		case "musixmatch": {
+			const selector = "title";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+			const playingTrack = tag.textContent;
+			const m = playingTrack.match(/(?<artists>.+) - (?<title>.+) Lyrics \| Musixmatch/)
+
+			const artists = m.groups.artists;
+			artist = artists.replace(/ feat\..*/, "");
+
+			break;
+		}
 	}
+
+	return artist;
 }
 
 const getTitle = function(page) {
