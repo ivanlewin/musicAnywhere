@@ -142,3 +142,7 @@ let page = "youtubeMusic";
 const artist = getArtist(page);
 const title = getTitle(page);
 const url = searchIn(page, title, artist);
+console.log("artist: ", artist);
+console.log("title: ", title);
+console.log("url: ", url);
+// window.open(url);
