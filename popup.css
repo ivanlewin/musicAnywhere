@@ -1,0 +1,11 @@
+button {
+    height: 30px;
+    width: 30px;
+    outline: none;
+}
+
+.links {
+    width: 230px;
+    display: flex;
+    flex-flow: column;
+}
