@@ -2,15 +2,19 @@
 console.log("popupp.js");
 
 const getArtist = function(page) {
-	if(page === "spotify") {
-		const selector = "a[aria-label*='Now playing:']";
-		const tag = document.querySelector(selector);
-		if(!tag) return;
-		const playingTrack = tag.ariaLabel;
-		const m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
+	let firstArtist = "";
+	switch(page) {
 
-		const artists = m.groups.artists;
-		const firstArtist = artists.split(",")[0];
+		case "spotify":
+			const selector = "a[aria-label*='Now playing:']";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+			const playingTrack = tag.ariaLabel;
+			const m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
+	
+			const artists = m.groups.artists;
+			firstArtist = artists.split(",")[0];
+			break;
 
 		return firstArtist;
 	}
