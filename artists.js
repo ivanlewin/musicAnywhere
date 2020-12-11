@@ -124,13 +124,6 @@ const getTitle = function(page) {
 	return withoutFeat;
 }
 
-setTimeout(() => {
-	let page = "spotify";
-	const artist = getArtist(page);
-	const title = getTitle(page);
-	searchIn(page);
-}, 3000);
-
 const searchIn = function(page, title, artist) {
 	// Returns a URL to a search query for the song on the given page.
 	const searchURLs = {
