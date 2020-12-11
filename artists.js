@@ -84,8 +84,15 @@ const getTitle = function(page) {
 			break;
 		}
 
-		const title = m.groups.title;
-		const withoutFeat = title.replace(/ \(feat\..*\)/, "");
+		case "youtubeMusic": {
+			const selector = "div.content-info-wrapper.style-scope > yt-formatted-string.title";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+			
+			const title = tag.textContent;
+			withoutFeat = title.replace(/ \(feat\..*\)/, "");
+			break;
+		}
 
 		return withoutFeat;
 	}
