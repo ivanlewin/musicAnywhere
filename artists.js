@@ -97,6 +97,15 @@ const getTitle = function(page) {
 		case "youtube": {
 			break;
 		}
+
+		case "genius": {
+			const selector = "h1[class*='primary_info-title']";
+			const tag = document.querySelector(selector);
+			if(!tag) return;
+
+			withoutFeat = tag.textContent.trim();
+			break;
+		}
 	}
 }
 
