@@ -1,5 +1,4 @@
 'use strict';
-
 const getArtist = function(page) {
 	let artist = "";
 	switch(page) {

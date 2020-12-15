@@ -35,9 +35,11 @@ const getTrackInfoGenius = function() {
     return trackInfo;
 };
 
+
 const getTrackInfoMusixmatch = function() {
 
 };
+
 
 const getTrackInfoSpotfiy = function() {
 
@@ -55,12 +57,15 @@ const getTrackInfoSpotfiy = function() {
 	return trackInfo;
 };
 
+
 const getTrackInfoYoutube = function() {
 
 };
 
+
 const getTrackInfoYoutubeMusic = function() {
 
 };
+
 
 export { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic }
