@@ -124,8 +124,7 @@ const getTrackInfoYoutubeMusic = function() {
     tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
     if(tag) {
         let title = tag.textContent;
-
-        trackInfo = title.replace(/ \(feat\..*\)/, "");
+        trackInfo.title = title.replace(/ \(feat\..*\)/, "");
     }
 
 
