@@ -20,11 +20,6 @@ const searchIn = function(site, title, artists) {
 	return searchURLs[site] + encodeURI(searchQuery);
 }
 
-let page = "youtubeMusic";
-const artist = getArtist(page);
-const title = getTitle(page);
-const url = searchIn(page, title, artist);
-console.log("artist: ", artist);
 const getSiteInfo = function() {
 
 	const hostname = new URL(window.location.href).hostname;
@@ -57,5 +52,7 @@ const getSiteInfo = function() {
 
 const {title, artists} = getSiteInfo();
 console.log("title: ", title);
-console.log("url: ", url);
+console.log("artists: ", artists);
+const site = "genius";
+const url = searchIn(site, title, artists);
 // window.open(url);
