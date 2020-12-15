@@ -1,6 +1,15 @@
 const getTrackInfoAppleMusic = function() {
 
 };
+
+const getTrackInfoGenius = function() {
+
+};
+
+const getTrackInfoMusixmatch = function() {
+
+};
+
 const getTrackInfoSpotfiy = function() {
 
 	const trackInfo = {};
@@ -16,3 +25,12 @@ const getTrackInfoSpotfiy = function() {
 
 	return trackInfo;
 };
+
+const getTrackInfoYoutube = function() {
+
+};
+
+const getTrackInfoYoutubeMusic = function() {
+
+};
+
