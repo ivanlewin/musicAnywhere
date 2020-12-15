@@ -38,6 +38,31 @@ const getTrackInfoGenius = function() {
 
 const getTrackInfoMusixmatch = function() {
 
+    const trackInfo = {
+        "title": undefined,
+        "artists": []
+    };
+    
+    // Get the <title> tag, which contains the title and the artists
+    let tag = document.querySelector("title");
+    if(!tag) return;
+    let playingTrack = tag.textContent;
+    let m = playingTrack.match(/(?<artists>.+) - (?<title>.+) Lyrics \| Musixmatch/);
+    if(!m) return;
+
+    // Separate into primary and featuring artists
+    let [primaryArtist, featuringArtists] = m.groups.artists.split(" feat. ");
+    trackInfo.artists.push(primaryArtist);
+    // If there are any featuring artists, push them to the array as well
+    if(featuringArtists) {
+        featuringArtists = featuringArtists.split(",");
+        trackInfo.artists.push(...featuringArtists);
+    }
+
+    let title = m.groups.title.replace(/ \(feat\..*\)/, ""); // Remove the 'featuring' info as it is on the artists array
+    trackInfo.title = title;
+
+    return trackInfo;
 };
 
 
