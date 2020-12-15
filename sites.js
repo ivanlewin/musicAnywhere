@@ -31,7 +31,7 @@ const getTrackInfoGenius = function() {
     trackInfo.artists.push(...featuringArtists);
 
     // Get the track title
-    const tag = document.querySelector("h1[class*='primary_info-title']");
+    tag = document.querySelector("h1[class*='primary_info-title']");
     if(!tag) return;
     let title = tag.textContent.trim();
 
@@ -121,7 +121,7 @@ const getTrackInfoYoutubeMusic = function() {
         trackInfo.artists.push(primaryArtist);
     }
 
-    let tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
+    tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
     if(tag) {
         let title = tag.textContent;
 
