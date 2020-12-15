@@ -1,5 +1,10 @@
 const getTrackInfoAppleMusic = function() {
+    const trackInfo = {
+        "title": undefined,
+        "artists": []
+    };
 
+    return trackInfo;
 };
 
 
@@ -91,7 +96,12 @@ const getTrackInfoSpotfiy = function() {
 
 
 const getTrackInfoYoutube = function() {
+    const trackInfo = {
+        "title": undefined,
+        "artists": []
+    };
 
+    return trackInfo;
 };
 
 
@@ -114,7 +124,7 @@ const getTrackInfoYoutubeMusic = function() {
     let tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
     if(tag) {
         let title = tag.textContent;
-        
+
         trackInfo = title.replace(/ \(feat\..*\)/, "");
     }
 

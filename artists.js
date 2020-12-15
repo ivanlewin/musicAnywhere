@@ -1,44 +1,5 @@
 'use strict';
-const getArtist = function(page) {
-	let artist = "";
-	switch(page) {
 import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic } from "./sites.js";
-
-
-	const artists = [];
-
-			artist = m.groups.artist;
-
-			break;
-		}
-
-		// case "youtube": {
-		// 	const selector = "div.content-info-wrapper.style-scope yt-formatted-string.ytmusic-player-bar";
-		// 	const tag = document.querySelector(selector);
-		// 	if(!tag) return;
-		// 	const playingTrack = tag.title;
-		// 	const m = playingTrack.match(/(?<title>.+) •.* • 2020/)
-
-		// 	artist = m.groups.title;
-
-		// break;
-		// }
-	}
-
-	return artist;
-}
-
-const getTitle = function(page) {
-	let withoutFeat = "";
-	switch(site) {
-
-		case "youtube": {
-			break;
-		}
-	}
-
-	return withoutFeat;
-}
 
 const searchIn = function(page, title, artist) {
 	// Returns a URL to a search query for the song on the given page.
