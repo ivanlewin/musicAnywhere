@@ -30,15 +30,6 @@ import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, get
 		// break;
 		// }
 
-		case "genius": {
-			const selector = "a[class*='primary_artist']";
-			const tag = document.querySelector(selector);
-			if(!tag) return;
-			artist = tag.textContent.trim();
-
-			break;
-		}
-
 		case "musixmatch": {
 			const selector = "title";
 			const tag = document.querySelector(selector);
@@ -70,15 +61,6 @@ const getTitle = function(page) {
 		}
 
 		case "youtube": {
-			break;
-		}
-
-		case "genius": {
-			const selector = "h1[class*='primary_info-title']";
-			const tag = document.querySelector(selector);
-			if(!tag) return;
-
-			withoutFeat = tag.textContent.trim();
 			break;
 		}
 
