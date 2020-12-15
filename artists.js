@@ -1,8 +1,10 @@
 "use strict"
 import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic } from "./sites.js";
 
-const searchIn = function(page, title, artist) {
-	// Returns a URL to a search query for the song on the given page.
+chrome.runtime.getURL("./site.js");
+
+const searchIn = function(site, title, artists) {
+	// Returns a URL to a search query for the song on the given site.
 	const searchURLs = {
 		"appleMusic": "https://music.apple.com/us/search?term=",
 		"genius": "https://genius.com/search?q=",
@@ -12,7 +14,10 @@ const searchIn = function(page, title, artist) {
 		"youtubeMusic": "https://music.youtube.com/search?q="
 	}
 
-	return searchURLs[page] + encodeURI(title + " " + artist);
+	artists = artists.join(" ");
+	let searchQuery = `${title} ${artists}`;
+
+	return searchURLs[site] + encodeURI(searchQuery);
 }
 
 let page = "youtubeMusic";
