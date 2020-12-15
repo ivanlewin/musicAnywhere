@@ -97,6 +97,29 @@ const getTrackInfoYoutube = function() {
 
 const getTrackInfoYoutubeMusic = function() {
 
+    const trackInfo = {
+        "title": undefined,
+        "artists": []
+    };
+
+    // Get the primary artist
+    let tag = document.querySelector("div.content-info-wrapper.style-scope span.subtitle yt-formatted-string.ytmusic-player-bar");
+    if(tag) {
+        let playingTrack = tag.title;
+        let primaryArtist = playingTrack.split(" • ")[0];
+
+        trackInfo.artists.push(primaryArtist);
+    }
+
+    let tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
+    if(tag) {
+        let title = tag.textContent;
+        
+        trackInfo = title.replace(/ \(feat\..*\)/, "");
+    }
+
+
+    return trackInfo;
 };
 
 

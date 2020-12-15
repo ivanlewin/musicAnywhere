@@ -5,12 +5,7 @@ const getArtist = function(page) {
 import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic } from "./sites.js";
 
 
-		case "youtubeMusic": {
-			const selector = "div.content-info-wrapper.style-scope span.subtitle yt-formatted-string.ytmusic-player-bar";
-			const tag = document.querySelector(selector);
-			if(!tag) return;
-			const playingTrack = tag.title;
-			const m = playingTrack.match(/(?<artist>.+) •.* • 2020/)
+	const artists = [];
 
 			artist = m.groups.artist;
 
@@ -35,16 +30,7 @@ import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, get
 
 const getTitle = function(page) {
 	let withoutFeat = "";
-
-		case "youtubeMusic": {
-			const selector = "div.content-info-wrapper.style-scope > yt-formatted-string.title";
-			const tag = document.querySelector(selector);
-			if(!tag) return;
-			
-			const title = tag.textContent;
-			withoutFeat = title.replace(/ \(feat\..*\)/, "");
-			break;
-		}
+	switch(site) {
 
 		case "youtube": {
 			break;
