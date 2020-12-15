@@ -1,7 +1,7 @@
 "use strict"
 import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic } from "./sites.js";
 
-chrome.runtime.getURL("./site.js");
+// chrome.runtime.getURL("./site.js");
 
 const searchIn = function(site, title, artists) {
 	// Returns a URL to a search query for the song on the given site.
