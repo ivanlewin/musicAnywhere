@@ -3,6 +3,7 @@
 const getArtist = function(page) {
 	let artist = "";
 	switch(page) {
+import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic } from "./sites.js";
 
 		case "spotify": {
 			const selector = "a[aria-label*='Now playing:']";

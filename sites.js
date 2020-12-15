@@ -34,3 +34,4 @@ const getTrackInfoYoutubeMusic = function() {
 
 };
 
+export { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic }
