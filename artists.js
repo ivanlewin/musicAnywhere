@@ -1,4 +1,4 @@
-'use strict';
+"use strict"
 import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic } from "./sites.js";
 
 const searchIn = function(page, title, artist) {
