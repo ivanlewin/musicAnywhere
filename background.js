@@ -1,15 +1,16 @@
 'use strict';
 
 const supportedSites = [
-	{url: "youtube.com", icons: "youtube"},
-	{url: "music.youtube.com", icons: "youtube"},
-	{url: "open.spotify.com", icons: "spotify"},
-	{url: "www.musixmatch.com", icons: "musixmatch"},
+	{url: "music.apple.com", icons: "apple-music"},
 	{url: "genius.com", icons: "genius"},
-	{url: "music.apple.com", icons: "apple-music"}
+	{url: "www.musixmatch.com", icons: "musixmatch"},
+	{url: "open.spotify.com", icons: "spotify"},
+	{url: "www.youtube.com", icons: "youtube"},
+	{url: "music.youtube.com", icons: "youtube"},
 ]
 
 const createRules = function() {
+	// Creates an array of rules to show the page action on the supported sites (and set the page action icon)
 	const rules = [];
 
 	for(let site of supportedSites) {
@@ -41,8 +42,6 @@ const createRules = function() {
 
 		rules.push(rule);
 	}
-
-	console.log(rules);
 	
 	return rules
 }
