@@ -43,16 +43,23 @@ const getTrackInfoMusixmatch = function() {
 
 const getTrackInfoSpotfiy = function() {
 
-	const trackInfo = {};
+    const trackInfo = {
+        "title": undefined,
+        "artists": []
+    };
 
-	const tag = document.querySelector("a[aria-label*='Now playing:']");
+    // Get the 'Now playing' legend, which contains the title and the artists
+	let tag = document.querySelector("a[aria-label*='Now playing:']");
 	if(!tag) return;
-	const playingTrack = tag.ariaLabel;
-	const m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
-	if(!m) return;
+	let playingTrack = tag.ariaLabel;
+	let m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
+    if(!m) return;
 
-	trackInfo.artists = m.groups.artists.split(",");
-	trackInfo.title = m.groups.title.replace(/ \(feat\..*\)/, "");
+    let artists = m.groups.artists.split(",");
+    let title = m.groups.title.replace(/ \(feat\..*\)/, ""); // Remove the 'featuring' info as it is on the artists array
+
+	trackInfo.artists.push(...artists);
+	trackInfo.title = title;
 
 	return trackInfo;
 };
