@@ -4,6 +4,31 @@ const getTrackInfoAppleMusic = function() {
         "artists": []
     };
 
+    // Get the primary artist
+    let tag = document.querySelector(".web-chrome-playback-lcd__song-name-scroll-inner-text-wrapper");
+    if(tag) {
+        let primaryArtist = tag.textContent.trim();
+        trackInfo.artists.push(primaryArtist);
+    }
+
+    // Get the track title
+    tag = document.querySelector(".web-chrome-playback-lcd__song-name-scroll-inner-text-wrapper");
+    if(tag) {
+        let title = tag.textContent.trim();
+        trackInfo.title = removeFeaturingArtists(title);
+
+        // Attempt to extract the featuring artists from the title
+        let m = title.match(/ \(feat\. (?<featuring>.*)\)/);
+        if(!m) return
+        let featuringArtists = m.groups.featuring;
+        // If there are any featuring artists, push them to the array as well
+        if(featuringArtists) {
+            featuringArtists = featuringArtists.split(",");
+            trackInfo.artists.push(...featuringArtists);
+        }
+    }
+
+
     return trackInfo;
 };
 
