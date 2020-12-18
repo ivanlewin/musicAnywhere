@@ -1,6 +1,5 @@
 "use strict"
 
-// chrome.runtime.getURL("./site.js");
 /** Removes the 'feat. / featuring ' info  from a string*/
 const removeFeaturingArtists = function(text) {
 	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
