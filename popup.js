@@ -21,6 +21,13 @@ const searchIn = function(site, title, artists) {
 
 	return searchURLs[site] + encodeURI(searchQuery);
 }
+
+/**
+ * Taken from https://developer.chrome.com/docs/extensions/mv2/security/#sanitize
+*/
+const sanitizeInput = function(input) {
+    return input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+}
 // 	changeColor.style.backgroundColor = data.color;
 // 	changeColor.setAttribute('value', data.color);
 // });
