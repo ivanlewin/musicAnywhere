@@ -1,10 +1,9 @@
-'use strict';
+"use strict";
 
 chrome.tabs.executeScript({
-	file: 'artists.js'
+	file: "./trackInfo.js"
 });
 
-// let changeColor = document.getElementById('changeColor');
 const searchIn = function(site, title, artists) {
 	// Returns a URL to a search query for the song on the given site.
 	const searchURLs = {
@@ -36,8 +35,11 @@ const site = "genius";
 const url = searchIn(site, title, artists);
 window.alert(url);
 
+// let changeColor = document.getElementById("changeColor");
+
+// chrome.storage.sync.get("color", function(data) {
 // 	changeColor.style.backgroundColor = data.color;
-// 	changeColor.setAttribute('value', data.color);
+// 	changeColor.setAttribute("value", data.color);
 // });
 
 // changeColor.onclick = function(element) {
@@ -45,6 +47,6 @@ window.alert(url);
 // 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 // 		chrome.tabs.executeScript(
 // 				tabs[0].id,
-// 				{code: 'document.body.style.backgroundColor = "' + color + '";'});
+// 				{code: "document.body.style.backgroundColor = "" + color + "";"});
 // 	});
 // };
