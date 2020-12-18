@@ -161,5 +161,3 @@ const getTrackInfoYoutubeMusic = function() {
 
     return trackInfo;
 };
-
-export { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic }
