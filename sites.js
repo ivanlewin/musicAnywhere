@@ -1,3 +1,8 @@
+/** Removes the 'feat. / featuring ' info  from a string*/
+const removeFeaturingArtists = function(text) {
+	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
+}
+
 const getTrackInfoAppleMusic = function() {
     const trackInfo = {
         "title": undefined,
