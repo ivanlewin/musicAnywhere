@@ -170,7 +170,6 @@ const getTrackInfoYoutubeMusic = function() {
 const getSiteInfo = function() {
 
 	const hostname = new URL(window.location.href).hostname;
-	console.log(hostname)
 
 	switch(hostname) {
 		case "music.apple.com": {
@@ -195,5 +194,4 @@ const getSiteInfo = function() {
 			return;
 		}
 	}
-};
 };
