@@ -65,7 +65,7 @@ const getTrackInfoGenius = function() {
     if(!tag) return;
     let title = tag.textContent.trim();
 
-    trackInfo.title = title;
+    trackInfo.title = removeFeaturingArtists(title);
 
     return trackInfo;
 };
@@ -94,8 +94,8 @@ const getTrackInfoMusixmatch = function() {
         trackInfo.artists.push(...featuringArtists);
     }
 
-    let title = m.groups.title.replace(/ \(feat\..*\)/, ""); // Remove the 'featuring' info as it is on the artists array
-    trackInfo.title = title;
+    let title = m.groups.title
+    trackInfo.title = removeFeaturingArtists(title);
 
     return trackInfo;
 };
@@ -116,10 +116,10 @@ const getTrackInfoSpotfiy = function() {
     if(!m) return;
 
     let artists = m.groups.artists.split(",");
-    let title = m.groups.title.replace(/ \(feat\..*\)/, ""); // Remove the 'featuring' info as it is on the artists array
+    let title = m.groups.title;
 
 	trackInfo.artists.push(...artists);
-	trackInfo.title = title;
+	trackInfo.title = removeFeaturingArtists(title);
 
 	return trackInfo;
 };
@@ -151,10 +151,11 @@ const getTrackInfoYoutubeMusic = function() {
         trackInfo.artists.push(primaryArtist);
     }
 
+    // Get the track title
     tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
     if(tag) {
         let title = tag.textContent;
-        trackInfo.title = title.replace(/ \(feat\..*\)/, "");
+        trackInfo.title = removeFeaturingArtists(title);
     }
 
 
