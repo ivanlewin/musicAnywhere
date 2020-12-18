@@ -35,10 +35,4 @@ const getSiteInfo = function() {
 		}
 	}
 };
-
-const {title, artists} = getSiteInfo();
-console.log("title: ", title);
-console.log("artists: ", artists);
-const site = "genius";
-const url = searchIn(site, title, artists);
-// window.open(url);
+};

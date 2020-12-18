@@ -28,6 +28,14 @@ const searchIn = function(site, title, artists) {
 const sanitizeInput = function(input) {
     return input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
+
+let {title, artists} = getSiteInfo();
+console.log("title: ", title);
+console.log("artists: ", artists);
+const site = "genius";
+const url = searchIn(site, title, artists);
+window.alert(url);
+
 // 	changeColor.style.backgroundColor = data.color;
 // 	changeColor.setAttribute('value', data.color);
 // });
