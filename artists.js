@@ -1,5 +1,4 @@
 "use strict"
-import { getTrackInfoAppleMusic, getTrackInfoGenius, getTrackInfoMusixmatch, getTrackInfoSpotfiy, getTrackInfoYoutube, getTrackInfoYoutubeMusic } from "./sites.js";
 
 // chrome.runtime.getURL("./site.js");
 /** Removes the 'feat. / featuring ' info  from a string*/
