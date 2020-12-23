@@ -194,3 +194,17 @@ const getSiteInfo = function() {
 		}
 	}
 };
+
+/** Awaits for a connection from the pageAction */
+chrome.runtime.onConnect.addListener((port) => {
+    port.onMessage.addListener((msg) => {
+        if (msg.function == "getSiteInfo") {
+            try {
+                const siteInfo = getSiteInfo();
+                port.postMessage(siteInfo);
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    });
+});
