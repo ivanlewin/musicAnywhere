@@ -1,5 +1,6 @@
 "use strict";
 
+const links = document.querySelectorAll(".link");
 
 const searchIn = function(site, title, artists) {
 	// Returns a URL to a search query for the song on the given site.
@@ -25,7 +26,6 @@ const sanitizeInput = function(input) {
     return input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
 
-// let changeColor = document.getElementById("changeColor");
 
 // chrome.storage.sync.get("color", function(data) {
 // 	changeColor.style.backgroundColor = data.color;
