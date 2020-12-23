@@ -14,4 +14,10 @@ body {
     color: black;
     font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+
+.link:hover,
+.link:focus {
+    color: black;
+}
+
 }
