@@ -8,3 +8,10 @@ body {
     display: flex;
     flex-flow: column;
 }
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+}
