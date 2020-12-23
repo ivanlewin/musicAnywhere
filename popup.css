@@ -4,6 +4,7 @@ body {
 
 .links {
     width: max-content;
+    padding: 0.5em 1em;
     display: flex;
     flex-flow: column;
 }
