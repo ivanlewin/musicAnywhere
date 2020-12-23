@@ -3,7 +3,7 @@ body {
 }
 
 .links {
-    width: 230px;
+    width: max-content;
     display: flex;
     flex-flow: column;
 }
