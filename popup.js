@@ -28,13 +28,6 @@ const sanitizeInput = function(input) {
     return input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
 
-let {title, artists} = getSiteInfo();
-console.log("title: ", title);
-console.log("artists: ", artists);
-const site = "genius";
-const url = searchIn(site, title, artists);
-window.alert(url);
-
 // let changeColor = document.getElementById("changeColor");
 
 // chrome.storage.sync.get("color", function(data) {
@@ -52,3 +45,20 @@ const connect = function() {
 			port.disconnect();  // Disconnect the port as there's only going to be one message
 		})
 	});
+}
+
+const handleResponse = function(response) {
+	try {
+		const {artists, title} = response;
+		console.log("title: ", title);
+		console.log("artists: ", artists);
+
+		links.forEach(tag => {
+			tag.href = searchIn(tag.dataset.site, title, artists);
+		})
+
+	} catch (e) {
+		console.error(e);
+	}
+}
+
