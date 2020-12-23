@@ -42,3 +42,13 @@ window.alert(url);
 // 	changeColor.setAttribute("value", data.color);
 // });
 
+/** Creates a connection for message passing and immediately posts a message to that new connection. */
+const connect = function() {
+	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+		const port = chrome.tabs.connect(tabs[0].id);  // Creates a port to the content script
+		port.postMessage({ function: "getSiteInfo" });  // Sends a message
+		port.onMessage.addListener(response => {
+			handleResponse(response);
+			port.disconnect();  // Disconnect the port as there's only going to be one message
+		})
+	});
