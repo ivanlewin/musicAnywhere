@@ -1,8 +1,5 @@
 "use strict";
 
-chrome.tabs.executeScript({
-	file: "./trackInfo.js"
-});
 
 const searchIn = function(site, title, artists) {
 	// Returns a URL to a search query for the song on the given site.
@@ -62,3 +59,10 @@ const handleResponse = function(response) {
 	}
 }
 
+/** Inject the content script to the tab once the extension has loaded and then starts a connection */
+window.addEventListener("load", (e) => {
+	chrome.tabs.executeScript(
+		null,
+		{file: "./trackinfo.js"},  // The content script
+		() => connect())  // Establish the connection afterwards
+});
