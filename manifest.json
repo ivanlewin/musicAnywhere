@@ -2,14 +2,7 @@
 	"name": "Getting Started Example",
 	"version": "1.0",
 	"description": "Build an Extension!",
-	"permissions": ["storage", "declarativeContent", "tabs",
-		"*://music.apple.com/*",
-		"*://genius.com/*",
-		"*://www.musixmatch.com/*",
-		"*://open.spotify.com/*",
-		"*://www.youtube.com/*",
-		"*://music.youtube.com/*"
-	],
+	"permissions": ["storage", "declarativeContent", "tabs"],
 	"background.service_worker": {
 		"scripts": ["background.js"],
 		"persistent": false

@@ -280,18 +280,4 @@ const getSite = function() {
     return site;
 };
 
-/** Awaits for a connection from the pageAction */
-chrome.runtime.onConnect.addListener((port) => {
-    port.onMessage.addListener((msg) => {
-        if (msg.function == "getSiteInfo") {
-            try {
-                const site = getSite();
-                const trackInfo = getTrackInfo(site);
-                const message = { site, trackInfo };
-                port.postMessage(message);
-            } catch (e) {
-                console.error(e);
-            }
         }
-    });
-});
