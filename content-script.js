@@ -280,4 +280,15 @@ const getSite = function() {
     return site;
 };
 
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+        try {
+            const site = getSite();
+            const trackInfo = getTrackInfo(site);
+            const message = { site, trackInfo, a : "openOnDesktopAppleMusic()", b :openOnDesktopSpotify() };
+            sendResponse(message);
+        } catch (e) {
+            console.error(e);
         }
+    }
+);
