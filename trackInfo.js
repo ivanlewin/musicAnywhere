@@ -220,7 +220,7 @@ const getTrackInfoMediaSession = function() {
  * @param site {supportedSite}
  * 
 */
-const getSiteFunction = function(site) {
+const getTrackInfoOn = function(site) {
 
     switch(site) {
 		case "appleMusic": {
@@ -254,8 +254,8 @@ const getSiteFunction = function(site) {
  */
 const getTrackInfo = function(site) {
     let trackInfo;
-    trackInfo = getSiteFunction(site);
     if(!trackInfo.title || !trackInfo.artists.length) {
+    trackInfo = getTrackInfoOn(site);
         trackInfo = getTrackInfoMediaSession();
     }
     return trackInfo;
