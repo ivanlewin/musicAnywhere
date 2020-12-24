@@ -3,7 +3,7 @@
 const links = document.querySelectorAll(".link");
 
 /** Returns a URL with a search query for the track on the given site. */
-const searchIn = function(site, title, artistsArr) {
+const getSearchURL = function(site, title, artistsArr) {
 	
 	const searchURLs = [
 		{site: "appleMusic", URL: "https://music.apple.com/us/search?term="},
@@ -50,7 +50,7 @@ const handleResponse = function(response) {
 		console.log("artists: ", artists);
 
 		links.forEach(tag => {
-			tag.href = searchIn(tag.dataset.site, title, artists);
+			tag.href = getSearchURL(tag.dataset.site, title, artists);
 		})
 
 	} catch (e) {
