@@ -1,5 +1,15 @@
 "use strict"
 
+/**
+ * @typedef {Object} trackInfo
+ * @property {string} title - The track's title
+ * @property {Array} artists - An array containing the track's artist(s)
+ */
+
+/**
+ * @typedef {"appleMusic" | "genius" | "musixmatch" | "spotify" | "youtube" | "youtubeMusic"} supportedSite
+ */
+
 /** Removes the 'feat. / featuring ' info  from a string*/
 const removeFeaturingArtists = function(text) {
 	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
