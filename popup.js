@@ -32,10 +32,11 @@ const removeFeaturingArtists = function(text) {
 
 const handleResponse = function(response) {
 	try {
-		const { site, trackInfo: {title, artists} } = response; 
-		console.log("site: ", site);
-		console.log("title: ", title);
-		console.log("artists: ", artists);
+		console.log(response)
+		let { site, trackInfo: {title, artists} } = response;
+		title = removeFeaturingArtists(title);
+		window.alert(`${site} | ${title} | ${artists}`);
+		console.log(`${site} | ${title} | ${artists}`);
 
 		links.forEach(tag => {
 			tag.href = getSearchURL(tag.dataset.site, title, artists);
@@ -46,9 +47,16 @@ const handleResponse = function(response) {
 	}
 }
 
+linkContainer.addEventListener("click", (e) => {
+	if(e.target.href) {
+		chrome.tabs.create({ url: e.target.href });
+	}
+});
+
+// chrome.storage.sync.get("color", function(data) {
 // 	changeColor.style.backgroundColor = data.color;
 // 	changeColor.setAttribute("value", data.color);
-// });// });
+// });
 
 const sendMsg = function(cb) {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
