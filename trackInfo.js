@@ -216,8 +216,6 @@ const getTrackInfoMediaSession = function() {
     trackInfo.artists = artistsArray;
 }
 
-	switch(hostname) {
-		case "music.apple.com": {
 /** Returns the appropriate function to query the site
  * 
  * @param site {supportedSite}
@@ -291,8 +289,10 @@ chrome.runtime.onConnect.addListener((port) => {
     port.onMessage.addListener((msg) => {
         if (msg.function == "getSiteInfo") {
             try {
-                const siteInfo = getSiteInfo();
-                port.postMessage(siteInfo);
+                const site = getSite();
+                const trackInfo = getTrackInfo(site);
+                const message = { site, trackInfo };
+                port.postMessage(message);
             } catch (e) {
                 console.error(e);
             }
