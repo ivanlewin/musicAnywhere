@@ -1,4 +1,5 @@
 "use strict";
+const linkContainer = document.querySelector(".link-container");
 const links = document.querySelectorAll(".link");
 
 /** Returns a URL with a search query for the track on the given site. */
