@@ -49,8 +49,6 @@ const getTrackInfoAppleMusic = function() {
             }
         }
     }
-
-
     return trackInfo;
 };
 
