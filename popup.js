@@ -21,11 +21,6 @@ const getSearchURL = function(site, title, artistsArr) {
 }
 
 
-// chrome.storage.sync.get("color", function(data) {
-// 	changeColor.style.backgroundColor = data.color;
-// 	changeColor.setAttribute("value", data.color);
-// });
-
 /** Creates a connection for message passing and immediately posts a message to that new connection. */
 const connect = function() {
 	chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -60,4 +55,7 @@ window.addEventListener("load", (e) => {
 		null,
 		{file: "./trackinfo.js"},  // The content script
 		() => connect())  // Establish the connection afterwards
-});
+});// chrome.storage.sync.get("color", function(data) {
+// 	changeColor.style.backgroundColor = data.color;
+// 	changeColor.setAttribute("value", data.color);
+// });
