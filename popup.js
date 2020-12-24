@@ -1,5 +1,4 @@
 "use strict";
-
 const links = document.querySelectorAll(".link");
 
 /** Returns a URL with a search query for the track on the given site. */
@@ -41,7 +40,8 @@ const connect = function() {
 
 const handleResponse = function(response) {
 	try {
-		const {artists, title} = response;
+		const { site, trackInfo: {title, artists} } = response; 
+		console.log("site: ", site);
 		console.log("title: ", title);
 		console.log("artists: ", artists);
 
