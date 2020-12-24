@@ -18,11 +18,7 @@ const getSearchURL = function(site, title, artistsArr) {
 	const artists = artistsArr.join(" ");
 	const searchQuery = `${title} ${artists}`;
 
-/**
- * Taken from https://developer.chrome.com/docs/extensions/mv2/security/#sanitize
-*/
-const sanitizeInput = function(input) {
-    return input.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+	return searchURL + encodeURI(searchQuery);
 }
 
 
