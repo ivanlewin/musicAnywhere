@@ -10,11 +10,6 @@
  * @typedef {"appleMusic" | "genius" | "musixmatch" | "spotify" | "youtube" | "youtubeMusic"} supportedSite
  */
 
-/** Removes the 'feat. / featuring ' info  from a string*/
-const removeFeaturingArtists = function(text) {
-	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
-}
-
 /** Looks for the track info on Apple Music
  * 
  * @returns {trackInfo}
@@ -36,7 +31,7 @@ const getTrackInfoAppleMusic = function() {
     tag = document.querySelector(".web-chrome-playback-lcd__song-name-scroll-inner-text-wrapper");
     if(tag) {
         let title = tag.textContent.trim();
-        trackInfo.title = removeFeaturingArtists(title);
+        trackInfo.title = title;
 
         // Attempt to extract the featuring artists from the title
         let m = title.match(/ \(feat\. (?<featuring>.*)\)/);
@@ -83,7 +78,7 @@ const getTrackInfoGenius = function() {
     if(!tag) return;
     let title = tag.textContent.trim();
 
-    trackInfo.title = removeFeaturingArtists(title);
+    trackInfo.title = title;
 
     return trackInfo;
 };
@@ -100,10 +95,10 @@ const getTrackInfoMusixmatch = function() {
     };
     
     // Get the <title> tag, which contains the title and the artists
-    let tag = document.querySelector("title");
+    const tag = document.querySelector("title");
     if(!tag) return;
-    let playingTrack = tag.textContent;
-    let m = playingTrack.match(/(?<artists>.+) - (?<title>.+) Lyrics \| Musixmatch/);
+    const playingTrack = tag.textContent;
+    const m = playingTrack.match(/(?<artists>.+) - (?<title>.+) Lyrics \| Musixmatch/);
     if(!m) return;
 
     // Separate into primary and featuring artists
@@ -115,8 +110,8 @@ const getTrackInfoMusixmatch = function() {
         trackInfo.artists.push(...featuringArtists);
     }
 
-    let title = m.groups.title
-    trackInfo.title = removeFeaturingArtists(title);
+    const title = m.groups.title;
+    trackInfo.title = title;
 
     return trackInfo;
 };
@@ -143,7 +138,7 @@ const getTrackInfoSpotfiy = function() {
     let title = m.groups.title;
 
 	trackInfo.artists.push(...artists);
-	trackInfo.title = removeFeaturingArtists(title);
+	trackInfo.title = title;
 
 	return trackInfo;
 };
@@ -185,7 +180,7 @@ const getTrackInfoYoutubeMusic = function() {
     tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
     if(tag) {
         let title = tag.textContent;
-        trackInfo.title = removeFeaturingArtists(title)
+        trackInfo.title = title
     }
 
 
