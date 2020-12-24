@@ -208,6 +208,8 @@ const getTrackInfoMediaSession = function() {
 
     trackInfo.title = title;
     trackInfo.artists = artistsArray;
+
+    return trackInfo;
 }
 
 /** Returns the appropriate function to query the site
