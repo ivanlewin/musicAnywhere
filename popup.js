@@ -2,8 +2,6 @@
 
 const links = document.querySelectorAll(".link");
 
-const searchIn = function(site, title, artists) {
-	// Returns a URL to a search query for the song on the given site.
 	const searchURLs = {
 		"appleMusic": "https://music.apple.com/us/search?term=",
 		"genius": "https://genius.com/search?q=",
@@ -12,6 +10,8 @@ const searchIn = function(site, title, artists) {
 		"youtube": "https://www.youtube.com/results?search_query=",
 		"youtubeMusic": "https://music.youtube.com/search?q="
 	}
+/** Returns a URL with a search query for the track on the given site. */
+const searchIn = function(site, title, artistsArr) {
 
 	artists = artists.join(" ");
 	let searchQuery = `${title} ${artists}`;
