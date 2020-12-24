@@ -326,10 +326,16 @@ const getDesktopURI = function() {
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         try {
-            const site = getSite();
-            const trackInfo = getTrackInfo(site);
-            const message = { site, trackInfo, a : "getDesktopURIAppleMusic()", b :getDesktopURISpotify() };
-            sendResponse(message);
+            if(request.function === "getSite") {
+                const site = getSite();
+                sendResponse({ site });
+            } else if(request.function === "getTrackInfo") {
+                const trackInfo = getTrackInfo();
+                sendResponse(trackInfo);
+            } else if(request.function === "getDesktopURI") {
+                const desktopURI = getDesktopURI();
+                sendResponse({ desktopURI });
+            }
         } catch (e) {
             console.error(e);
         }
