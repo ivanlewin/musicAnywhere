@@ -280,6 +280,25 @@ const getSite = function() {
     return site;
 };
 
+const openOnDesktopSpotify = function() {
+    let tag = document.querySelector("a[aria-label*='Now playing:']");
+    if(!tag) return;
+    let url = tag.getAttribute("href"); // To prevent the browser from appending the base URL
+
+    const desktopURI = `spotify:/${url}`;
+    return desktopURI;
+}
+
+const openOnDesktopAppleMusic = function () {
+    const tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-last-of-type(1)");
+    if(!tag) return;
+    const url = tag.href;
+
+    // replacing the http(s) protocol with itmss opens the URI on Apple Music or iTunes Desktop (Windows)
+    const desktopURI = url.replace(/(https|http)/, "itmss");
+    return desktopURI;
+}
+
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         try {
