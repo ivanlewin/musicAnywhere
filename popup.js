@@ -14,11 +14,9 @@ const searchIn = function(site, title, artistsArr) {
 		{site: "youtubeMusic", URL: "https://music.youtube.com/search?q="}
 	]
 
-	artists = artists.join(" ");
-	let searchQuery = `${title} ${artists}`;
-
-	return searchURLs[site] + encodeURI(searchQuery);
-}
+	const searchURL = searchURLs.filter(s => s.site === site)[0].URL;
+	const artists = artistsArr.join(" ");
+	const searchQuery = `${title} ${artists}`;
 
 /**
  * Taken from https://developer.chrome.com/docs/extensions/mv2/security/#sanitize
