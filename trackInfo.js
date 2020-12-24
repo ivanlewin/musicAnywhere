@@ -195,8 +195,24 @@ const getTrackInfoYoutubeMusic = function() {
 
 /** Matches the hostname to an object of the supported sites and returns the appropriate function */
 const getSiteInfo = function() {
+const getTrackInfoMediaSession = function() {
+    // Check that API is supported
+    if(!"mediaSession" in navigator) {
+        return;
+    }
 
-	const hostname = new URL(window.location.href).hostname;
+    const trackInfo = {
+        "title": undefined,
+        "artists": []
+    };
+
+    const metadata = navigator.mediaSession.metadata;
+    const title = metadata.title;
+    const artistsArray = metadata.artist.split(",");
+
+    trackInfo.title = title;
+    trackInfo.artists = artistsArray;
+}
 
 	switch(hostname) {
 		case "music.apple.com": {
