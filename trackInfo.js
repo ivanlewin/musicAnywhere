@@ -254,8 +254,8 @@ const getTrackInfoOn = function(site) {
  */
 const getTrackInfo = function(site) {
     let trackInfo;
-    if(!trackInfo.title || !trackInfo.artists.length) {
     trackInfo = getTrackInfoOn(site);
+    if(!trackInfo || !trackInfo.title || !trackInfo.artists.length) {
         trackInfo = getTrackInfoMediaSession();
     }
     return trackInfo;
