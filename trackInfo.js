@@ -40,12 +40,13 @@ const getTrackInfoAppleMusic = function() {
 
         // Attempt to extract the featuring artists from the title
         let m = title.match(/ \(feat\. (?<featuring>.*)\)/);
-        if(!m) return
-        let featuringArtists = m.groups.featuring;
-        // If there are any featuring artists, push them to the array as well
-        if(featuringArtists) {
-            featuringArtists = featuringArtists.split(",");
-            trackInfo.artists.push(...featuringArtists);
+        if(m) {
+            let featuringArtists = m.groups.featuring;
+            // If there are any featuring artists, push them to the array as well
+            if(featuringArtists) {
+                featuringArtists = featuringArtists.split(",");
+                trackInfo.artists.push(...featuringArtists);
+            }
         }
     }
 
