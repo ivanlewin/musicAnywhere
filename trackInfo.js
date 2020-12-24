@@ -15,7 +15,10 @@ const removeFeaturingArtists = function(text) {
 	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
 }
 
-/** Queries the site and returns a trackInfo object, containing the track's title and artist(s) */
+/** Looks for the track info on Apple Music
+ * 
+ * @returns {trackInfo}
+ */
 const getTrackInfoAppleMusic = function() {
     const trackInfo = {
         "title": undefined,
@@ -50,7 +53,10 @@ const getTrackInfoAppleMusic = function() {
     return trackInfo;
 };
 
-/** Queries the site and returns a trackInfo object, containing the track's title and artist(s) */
+/** Looks for the track info on Genius
+ * 
+ * @returns {trackInfo}
+ */
 const getTrackInfoGenius = function() {
 
     const trackInfo = {
@@ -83,7 +89,10 @@ const getTrackInfoGenius = function() {
     return trackInfo;
 };
 
-/** Queries the site and returns a trackInfo object, containing the track's title and artist(s) */
+/** Looks for the track info on Musixmatch
+ * 
+ * @returns {trackInfo}
+ */
 const getTrackInfoMusixmatch = function() {
 
     const trackInfo = {
@@ -113,7 +122,10 @@ const getTrackInfoMusixmatch = function() {
     return trackInfo;
 };
 
-/** Queries the site and returns a trackInfo object, containing the track's title and artist(s) */
+/** Looks for the track info on Spotify
+ * 
+ * @returns {trackInfo}
+ */
 const getTrackInfoSpotfiy = function() {
 
     const trackInfo = {
@@ -137,7 +149,10 @@ const getTrackInfoSpotfiy = function() {
 	return trackInfo;
 };
 
-/** Queries the site and returns a trackInfo object, containing the track's title and artist(s) */
+/** Looks for the track info on Youtube
+ * 
+ * @returns {trackInfo}
+ */
 const getTrackInfoYoutube = function() {
     const trackInfo = {
         "title": undefined,
@@ -147,7 +162,10 @@ const getTrackInfoYoutube = function() {
     return trackInfo;
 };
 
-/** Queries the site and returns a trackInfo object, containing the track's title and artist(s) */
+/** Looks for the track info on YoutubeMusic
+ * 
+ * @returns {trackInfo}
+ */
 const getTrackInfoYoutubeMusic = function() {
 
     const trackInfo = {
