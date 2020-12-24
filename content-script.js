@@ -280,7 +280,7 @@ const getSite = function() {
     return site;
 };
 
-const openOnDesktopSpotify = function() {
+const getDesktopURISpotify = function() {
     let tag = document.querySelector("a[aria-label*='Now playing:']");
     if(!tag) return;
     let url = tag.getAttribute("href"); // To prevent the browser from appending the base URL
@@ -289,7 +289,7 @@ const openOnDesktopSpotify = function() {
     return desktopURI;
 }
 
-const openOnDesktopAppleMusic = function () {
+const getDesktopURIAppleMusic = function () {
     const tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-last-of-type(1)");
     if(!tag) return;
     const url = tag.href;
@@ -304,7 +304,7 @@ chrome.runtime.onMessage.addListener(
         try {
             const site = getSite();
             const trackInfo = getTrackInfo(site);
-            const message = { site, trackInfo, a : "openOnDesktopAppleMusic()", b :openOnDesktopSpotify() };
+            const message = { site, trackInfo, a : "getDesktopURIAppleMusic()", b :getDesktopURISpotify() };
             sendResponse(message);
         } catch (e) {
             console.error(e);
