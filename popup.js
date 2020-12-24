@@ -2,16 +2,17 @@
 
 const links = document.querySelectorAll(".link");
 
-	const searchURLs = {
-		"appleMusic": "https://music.apple.com/us/search?term=",
-		"genius": "https://genius.com/search?q=",
-		"musixmatch": "https://www.musixmatch.com/search/",
-		"spotify": "https://open.spotify.com/search/",
-		"youtube": "https://www.youtube.com/results?search_query=",
-		"youtubeMusic": "https://music.youtube.com/search?q="
-	}
 /** Returns a URL with a search query for the track on the given site. */
 const searchIn = function(site, title, artistsArr) {
+	
+	const searchURLs = [
+		{site: "appleMusic", URL: "https://music.apple.com/us/search?term="},
+		{site: "genius", URL: "https://genius.com/search?q="},
+		{site: "musixmatch", URL: "https://www.musixmatch.com/search/"},
+		{site: "spotify", URL: "https://open.spotify.com/search/"},
+		{site: "youtube", URL: "https://www.youtube.com/results?search_query="},
+		{site: "youtubeMusic", URL: "https://music.youtube.com/search?q="}
+	]
 
 	artists = artists.join(" ");
 	let searchQuery = `${title} ${artists}`;
