@@ -20,6 +20,14 @@ const getSearchURL = function(site, title, artistsArr) {
 	return searchURL + encodeURI(searchQuery);
 }
 
+/** Removes the "feat. / featuring " info  from the given text
+ * 
+ * @param {String} text
+ * 
+*/
+const removeFeaturingArtists = function(text) {
+	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
+}
 
 /** Creates a connection for message passing and immediately posts a message to that new connection. */
 const connect = function() {
