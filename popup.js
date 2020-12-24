@@ -2,6 +2,7 @@
 const linkContainer = document.querySelector(".link-container");
 const links = document.querySelectorAll(".link");
 const openInDesktopBtn = document.querySelector(".openDesktop");
+let site, title, artists;
 
 /** Returns a URL with a search query for the track on the given site
  * 
@@ -38,7 +39,6 @@ const removeFeaturingArtists = function(text) {
 
 const handleResponse = function(response) {
 	try {
-		console.log(response)
 		let { site, trackInfo: {title, artists} } = response;
 		title = removeFeaturingArtists(title);
 		window.alert(`${site} | ${title} | ${artists}`);
@@ -59,18 +59,27 @@ linkContainer.addEventListener("click", (e) => {
 	}
 });
 
+const sendMsg = function(cb) {
+	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+		chrome.tabs.sendMessage(
+			tabs[0].id,
+			{ function : "getSite"},
+			response => cb(response) );
+	});
+}
+
+// sendMsg(handleResponse);
+
 // chrome.storage.sync.get("color", function(data) {
 // 	changeColor.style.backgroundColor = data.color;
 // 	changeColor.setAttribute("value", data.color);
 // });
 
-const sendMsg = function(cb) {
+openInDesktopBtn.addEventListener("click", (e) => {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		chrome.tabs.sendMessage(
 			tabs[0].id,
-			{ run : "getSite"},
-			response => cb(response) );
+			{ function : "getDesktopURI"},
+			response => chrome.tabs.create({ url: response.desktopURI }));
 	});
-}
-
-sendMsg(handleResponse)
+});
