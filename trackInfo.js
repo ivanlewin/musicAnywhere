@@ -13,7 +13,7 @@ const getTrackInfoAppleMusic = function() {
     };
 
     // Get the primary artist
-    let tag = document.querySelector(".web-chrome-playback-lcd__song-name-scroll-inner-text-wrapper");
+    let tag = document.querySelector(".web-chrome-playback-lcd__sub-copy-scroll-link");
     if(tag) {
         let primaryArtist = tag.textContent.trim();
         trackInfo.artists.push(primaryArtist);
