@@ -246,6 +246,21 @@ const getSiteFunction = function(site) {
 			return;
 		}
 	}
+}
+
+/** Attempts to search for the track info using the specific function or else tries using the MediaSession API
+ * 
+ * @param site {supportedSite}
+ * @returns {trackInfo}
+ */
+const getTrackInfo = function(site) {
+    let trackInfo;
+    trackInfo = getSiteFunction(site);
+    if(!trackInfo.title || !trackInfo.artists.length) {
+        trackInfo = getTrackInfoMediaSession();
+    }
+    return trackInfo;
+}
 };
 
 /** Awaits for a connection from the pageAction */
