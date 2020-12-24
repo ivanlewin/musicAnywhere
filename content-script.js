@@ -21,14 +21,14 @@ const getTrackInfoAppleMusic = function() {
     };
 
     // Get the primary artist
-    let tag = document.querySelector(".web-chrome-playback-lcd__sub-copy-scroll-link");
+    let tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-of-type(1)");
     if(tag) {
         let primaryArtist = tag.textContent.trim();
         trackInfo.artists.push(primaryArtist);
     }
 
     // Get the track title
-    tag = document.querySelector(".web-chrome-playback-lcd__song-name-scroll-inner-text-wrapper");
+    tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container .web-chrome-playback-lcd__song-name-scroll-inner-text-wrapper");
     if(tag) {
         let title = tag.textContent.trim();
         trackInfo.title = title;
