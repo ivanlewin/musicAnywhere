@@ -249,7 +249,8 @@ const getTrackInfoOn = function(site) {
  * @param site {supportedSite}
  * @returns {trackInfo}
  */
-const getTrackInfo = function(site) {
+const getTrackInfo = function() {
+    const site = getSite();
     let trackInfo;
     trackInfo = getTrackInfoOn(site);
     if(!trackInfo || !trackInfo.title || !trackInfo.artists.length) {
