@@ -216,21 +216,30 @@ const getTrackInfoMediaSession = function() {
 
 	switch(hostname) {
 		case "music.apple.com": {
+/** Returns the appropriate function to query the site
+ * 
+ * @param site {supportedSite}
+ * 
+*/
+const getSiteFunction = function(site) {
+
+    switch(site) {
+		case "appleMusic": {
 			return getTrackInfoAppleMusic();
 		}
-		case "genius.com": {
+		case "genius": {
 			return getTrackInfoGenius();
 		}
-		case "www.musixmatch.com": {
+		case "musixmatch": {
 			return getTrackInfoMusixmatch();
 		}
-		case "open.spotify.com": {
+		case "spotify": {
 			return getTrackInfoSpotfiy();
 		}
-		case "www.youtube.com": {
+		case "youtube": {
 			return getTrackInfoYoutube();
 		}
-		case "music.youtube.com": {
+		case "youtubeMusic": {
 			return getTrackInfoYoutubeMusic();
 		}
 		default: {
