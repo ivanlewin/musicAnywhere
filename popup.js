@@ -53,7 +53,7 @@ const handleResponse = function(response) {
 window.addEventListener("load", (e) => {
 	chrome.tabs.executeScript(
 		null,
-		{file: "./trackinfo.js"},  // The content script
+		{file: "./content-script.js"},  // The content script
 		() => connect())  // Establish the connection afterwards
 });// chrome.storage.sync.get("color", function(data) {
 // 	changeColor.style.backgroundColor = data.color;
