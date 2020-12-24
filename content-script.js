@@ -280,6 +280,10 @@ const getSite = function() {
     return site;
 };
 
+/** Gets a URI that opens the current playing track on the desktop version of Spotify
+ * 
+ * @returns {string} desktopURI
+ */
 const getDesktopURISpotify = function() {
     let tag = document.querySelector("a[aria-label*='Now playing:']");
     if(!tag) return;
@@ -289,6 +293,10 @@ const getDesktopURISpotify = function() {
     return desktopURI;
 }
 
+/** Gets a URI that opens the current playing track on the desktop version of Apple Music
+ * 
+ * @returns {string} desktopURI
+ */
 const getDesktopURIAppleMusic = function () {
     const tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-last-of-type(1)");
     if(!tag) return;
