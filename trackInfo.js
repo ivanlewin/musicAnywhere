@@ -193,8 +193,10 @@ const getTrackInfoYoutubeMusic = function() {
     return trackInfo;
 };
 
-/** Matches the hostname to an object of the supported sites and returns the appropriate function */
-const getSiteInfo = function() {
+/** Looks for the track info using the MediaSession API's metadata
+ * 
+ * @returns {trackInfo}
+ */
 const getTrackInfoMediaSession = function() {
     // Check that API is supported
     if(!"mediaSession" in navigator) {
@@ -261,6 +263,27 @@ const getTrackInfo = function(site) {
     }
     return trackInfo;
 }
+
+/** Gets the site's name based on the URL hostname
+ * 
+ * @returns {supportedSite}
+ * 
+*/
+const getSite = function() {
+
+    const sites = [
+        {site: "appleMusic", hostname: "music.apple.com"},
+        {site: "genius", hostname: "genius.com"},
+        {site: "musixmatch", hostname: "www.musixmatch.com"},
+        {site: "spotify", hostname: "open.spotify.com"},
+        {site: "youtube", hostname: "www.youtube.com"},
+        {site: "youtubeMusic", hostname: "music.youtube.com"}
+    ]
+
+    const hostname = new URL(window.location.href).hostname;
+    const site = sites.filter(s => s.hostname === hostname)[0].site;
+
+    return site;
 };
 
 /** Awaits for a connection from the pageAction */
