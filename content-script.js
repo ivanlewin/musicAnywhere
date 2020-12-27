@@ -143,6 +143,33 @@ const getTrackInfoSpotfiy = function() {
 	return trackInfo;
 };
 
+// /** Finds info on the current page on Spotify
+//  * 
+//  * @returns {trackInfo}
+//  */
+// const cpSpotify = function() {
+//     const itemInfo = {
+//         "type": undefined,
+//         "title": undefined,
+//         "artists": [],
+//     };
+
+//     // Get the 'Now playing' legend, which contains the title and the artists
+// 	let tag = document.querySelector("a[aria-label*='Now playing:']");
+// 	if(!tag) return;
+// 	let playingTrack = tag.ariaLabel;
+// 	let m = playingTrack.match(/Now playing: (?<title>.+) by (?<artists>.+)/);
+//     if(!m) return;
+
+//     let artists = m.groups.artists.split(",");
+//     let title = m.groups.title;
+
+// 	trackInfo.artists.push(...artists);
+// 	trackInfo.title = title;
+
+// 	return trackInfo;
+// }
+
 /** Looks for the track info on Youtube
  * 
  * @returns {trackInfo}
