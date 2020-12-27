@@ -24,8 +24,8 @@ body {
     font-weight: bolder;
 }
 
-.stream,
-.lyrics {
+.links-stream,
+.links-lyrics {
     display: flex;
     flex-flow: column;
 }
