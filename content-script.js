@@ -95,6 +95,25 @@ const getDataCurrentPage = function() {
 		}
     }
 }
+
+/** If on Spotify or Apple Music, returns a link to open the current page on the desktop version of the site
+ * 
+ * @returns {string | undefined} desktopURI
+ */
+const getDesktopURI = function() {
+    const siteName = getSiteName();
+    switch(siteName) {
+		case "appleMusic": {
+			return dURIAppleMusic();
+		}
+		case "spotify": {
+			return dURISpotify();
+		}
+		default: {
+			return;
+		}
+	}
+}
         "title": undefined,
         "artists": []
     };
