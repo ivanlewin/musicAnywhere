@@ -387,10 +387,60 @@ const cpGenius = function() {
 
     return itemData;
 };
+
+/** Extracts data from the current page on Musixmatch
  * 
+ * @returns {itemData}
+ */
+const cpMusixmatch = function() {
 
+    // Determine if the current page is an album, artist or song page based on the URL
+    const m = window.location.href.match(/musixmatch\.com\/(?<type>lyrics|artist|album)/);
+    if(!m) {
+        return
+    }
+    const type = m.groups.type === "lyrics" ? "song" : m.groups.type; // if URL is /lyrics, it's a song
 
+    const itemData = {
+        type,
+        "title": undefined,
+        "artists": []
+    };
 
+    if(type === "artist") {
+        const titleTag = document.querySelector(".profile-info h1");
+        if(titleTag) {
+            itemData.title = titleTag.textContent.trim();
+        }
+    } else if(type === "album") {
+        const titleTag = document.querySelector("h1");
+        if(titleTag) {
+            itemData.title = titleTag.textContent.trim();
+        }
+        const artistTag = document.querySelector("h2 a[href*='/artist']");
+        if(artistTag) {
+            itemData.artists.push(artistTag.textContent.trim());
+        }
+    } else if(type === "song") {
+        // Get the <title> tag, which contains the title and the artists
+        const titleTag = document.querySelector("title");
+        if(!titleTag) return;
+        const m = titleTag.textContent.match(/(?<artists>.+) - (?<title>.+) Lyrics \| Musixmatch/);
+        if(!m) return;
+
+        // Separate into primary and featuring artists
+        let [primaryArtist, featuringArtists] = m.groups.artists.split(" feat. ");
+        itemData.artists.push(primaryArtist);
+        // If there are any featuring artists, push them to the array as well
+        if(featuringArtists) {
+            featuringArtists = featuringArtists.split(",");
+            itemData.artists.push(...featuringArtists);
+        }
+
+        itemData.title = m.groups.title;
+    }
+
+    return itemData;
 };
 
 /** Gets a URI that opens the current playing track on the desktop version of Spotify
