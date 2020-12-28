@@ -114,6 +114,8 @@ const getDesktopURI = function() {
 	}
 }
 const psAppleMusic = function() {
+    const itemData = {
+        "type": "song",
         "title": undefined,
         "artists": []
     };
@@ -122,14 +124,14 @@ const psAppleMusic = function() {
     let tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-of-type(1)");
     if(tag) {
         let primaryArtist = tag.textContent.trim();
-        trackInfo.artists.push(primaryArtist);
+        itemData.artists.push(primaryArtist);
     }
 
     // Get the track title
     tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container .web-chrome-playback-lcd__song-name-scroll-inner-text-wrapper");
     if(tag) {
         let title = tag.textContent.trim();
-        trackInfo.title = title;
+        itemData.title = title;
 
         // Attempt to extract the featuring artists from the title
         let m = title.match(/ \(feat\. (?<featuring>.*)\)/);
@@ -138,7 +140,7 @@ const psAppleMusic = function() {
             // If there are any featuring artists, push them to the array as well
             if(featuringArtists) {
                 featuringArtists = featuringArtists.split(",");
-                trackInfo.artists.push(...featuringArtists);
+                itemData.artists.push(...featuringArtists);
             }
         }
     }
@@ -154,11 +156,12 @@ const psAppleMusic = function() {
 
 /** Looks for the track info on Spotify
  * 
- * @returns {trackInfo}
+ * @returns {itemData}
  */
 const psSpotify = function() {
 
-    const trackInfo = {
+    const itemData = {
+        "type": "song",
         "title": undefined,
         "artists": []
     };
@@ -173,10 +176,10 @@ const psSpotify = function() {
     let artists = m.groups.artists.split(",");
     let title = m.groups.title;
 
-	trackInfo.artists.push(...artists);
-	trackInfo.title = title;
+	itemData.artists.push(...artists);
+	itemData.title = title;
 
-	return trackInfo;
+	return itemData;
 };
 
 // /** Finds info on the current page on Spotify
@@ -212,20 +215,24 @@ const psSpotify = function() {
  */
 const getTrackInfoYoutube = function() {
     const trackInfo = {
+const psYouTube = function() {
+    const itemData = {
+        "type": "song",
         "title": undefined,
         "artists": []
     };
 
-    return trackInfo;
+    return itemData;
 };
 
 /** Looks for the track info on YoutubeMusic
  * 
- * @returns {trackInfo}
+ * @returns {itemData}
  */
 const getTrackInfoYoutubeMusic = function() {
 
-    const trackInfo = {
+    const itemData = {
+        "type": "song",
         "title": undefined,
         "artists": []
     };
@@ -236,23 +243,23 @@ const getTrackInfoYoutubeMusic = function() {
         let playingTrack = tag.title;
         let primaryArtist = playingTrack.split(" • ")[0];
 
-        trackInfo.artists.push(primaryArtist);
+        itemData.artists.push(primaryArtist);
     }
 
     // Get the track title
     tag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
     if(tag) {
         let title = tag.textContent;
-        trackInfo.title = title
+        itemData.title = title
     }
 
 
-    return trackInfo;
+    return itemData;
 };
 
 /** Looks for the track info using the MediaSession API's metadata
  * 
- * @returns {trackInfo}
+ * @returns {itemData}
  */
 const getTrackInfoMediaSession = function() {
     // Check that API is supported
@@ -260,7 +267,8 @@ const getTrackInfoMediaSession = function() {
         return;
     }
 
-    const trackInfo = {
+    const itemData = {
+        "type": "song",
         "title": undefined,
         "artists": []
     };
@@ -269,10 +277,10 @@ const getTrackInfoMediaSession = function() {
     const title = metadata.title;
     const artistsArray = metadata.artist.split(",");
 
-    trackInfo.title = title;
-    trackInfo.artists = artistsArray;
+    itemData.title = title;
+    itemData.artists = artistsArray;
 
-    return trackInfo;
+    return itemData;
 }
 
 /** Returns the appropriate function to query the site
