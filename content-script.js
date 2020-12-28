@@ -28,6 +28,41 @@ const getSiteName = function() {
     const siteName = sites.filter(s => s.hostname === hostname)[0].name;
 
     return siteName;
+};
+
+/** Finds the metadata of the song currently playing
+ * 
+ * @returns {itemData}
+ */
+const getDataPlayingSong = function() {
+    // return psMediaSession();
+    let itemData;
+
+    const siteName = getSiteName();
+    switch(siteName) {
+		case "appleMusic": {
+            itemData = psAppleMusic();
+            break;
+		}
+		case "spotify": {
+            itemData = psSpotify();
+            break;
+		}
+		case "youtube": {
+            itemData = psYouTube();
+            break;
+		}
+		case "youtubeMusic": {
+            itemData = psYouTubeMusic();
+            break;
+		}
+    }
+    
+    if(!itemData || !itemData.title || !itemData.artists.length) {
+        itemData = psMediaSession();
+    }
+    return itemData;
+}
  * 
  * @returns {trackInfo}
  */
