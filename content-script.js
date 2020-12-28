@@ -536,6 +536,67 @@ const cpYouTube = function() {
     // }
 
 	// return itemData;
+}
+
+/** Extracts data from the current page on YouTube Music
+ * 
+ * * Only album and artist pages supported
+ * @returns {itemData}
+ */
+const cpYouTubeMusic = function() {
+
+    // Checks what type of page the user is on based on the URL, and gets the type
+    const m = window.location.href.match(/music\.youtube\.com\/(?<type>playlist|channel|watch|browse)/);
+    if(!m) return
+    let type = m.groups.type;
+
+    // Rename to the pretedermined types
+    if(type === "watch") type = "song";
+    else if(type === "channel") type = "artist";
+    else if(type === "browse" | type === "playlist") type = "album";
+
+    const itemData = {
+        type,
+        "title": undefined,
+        "artists": [],
+    };
+    
+    if(type === "artist") {
+        const titleTag = document.querySelector("*.title[role=heading]");
+        if(titleTag) {
+            itemData.title = titleTag.childNodes[0].textContent.trim();
+        }
+    } else if(type === "album") {
+        const titleTag = document.querySelector("div.metadata h2");
+        if(titleTag) {
+            itemData.title = titleTag.textContent.trim();
+        }
+        const metadataTag = document.querySelector("div.metadata .subtitle");
+        const [type_, artist, year] = metadataTag.textContent.split(" • ");
+        // YouTubeMusic has albums on /browse and /playlist,
+        // here I check that it is an actual album and not a playlist
+        if(type_ !== "album") {
+            return
+        }
+        if(metadataTag) {
+            itemData.artists.push(artist);
+        }
+    } else if(type === "song") {
+        // Get the primary artist
+        const metadataTag = document.querySelector("div.content-info-wrapper.style-scope span.subtitle yt-formatted-string.ytmusic-player-bar");
+        if(metadataTag) {
+            let primaryArtist = metadataTag.title.split(" • ")[0];
+            itemData.artists.push(primaryArtist);
+        }
+        // Get the track title
+        const titleTag = document.querySelector("div.content-info-wrapper.style-scope > yt-formatted-string.title");
+        if(titleTag) {
+            itemData.title = titleTag.textContent;
+        }
+    }
+
+	return itemData;
+}
  * 
  * @returns {string} desktopURI
  */
