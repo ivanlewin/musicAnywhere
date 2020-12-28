@@ -156,7 +156,7 @@ const psAppleMusic = function() {
  * 
  * @returns {trackInfo}
  */
-const getTrackInfoSpotfiy = function() {
+const psSpotify = function() {
 
     const trackInfo = {
         "title": undefined,
