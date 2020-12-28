@@ -69,4 +69,8 @@ linkContainer.addEventListener("click", (e) => {
 	}
 });
 
+srcForm.addEventListener("change", e => {
+	chrome.storage.sync.set({"infoSrc": e.target.value})
+	src = e.target.value;
+})
 
