@@ -64,9 +64,8 @@ const getDataPlayingSong = function() {
     return itemData;
 }
  * 
- * @returns {trackInfo}
+ * @returns {itemData}
  */
-    const trackInfo = {
 const getDataCurrentPage = function() {
 
     const siteName = getSiteName();    
