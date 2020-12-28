@@ -12,6 +12,22 @@
  */
 
 /** Looks for the track info on Apple Music
+const getSiteName = function() {
+
+    const hostname = new URL(window.location.href).hostname;
+    
+    const sites = [
+        {name: "appleMusic", hostname: "music.apple.com"},
+        {name: "genius", hostname: "genius.com"},
+        {name: "musixmatch", hostname: "www.musixmatch.com"},
+        {name: "spotify", hostname: "open.spotify.com"},
+        {name: "youtube", hostname: "www.youtube.com"},
+        {name: "youtubeMusic", hostname: "music.youtube.com"}
+    ]
+    
+    const siteName = sites.filter(s => s.hostname === hostname)[0].name;
+
+    return siteName;
  * 
  * @returns {trackInfo}
  */
@@ -291,22 +307,9 @@ const getTrackInfo = function() {
  * 
  * @returns {supportedSite}
  * 
-*/
-const getSite = function() {
 
-    const sites = [
-        {site: "appleMusic", hostname: "music.apple.com"},
-        {site: "genius", hostname: "genius.com"},
-        {site: "musixmatch", hostname: "www.musixmatch.com"},
-        {site: "spotify", hostname: "open.spotify.com"},
-        {site: "youtube", hostname: "www.youtube.com"},
-        {site: "youtubeMusic", hostname: "music.youtube.com"}
-    ]
 
-    const hostname = new URL(window.location.href).hostname;
-    const site = sites.filter(s => s.hostname === hostname)[0].site;
 
-    return site;
 };
 
 /** Gets a URI that opens the current playing track on the desktop version of Spotify
