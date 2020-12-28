@@ -11,7 +11,12 @@
  * @typedef {"appleMusic" | "genius" | "musixmatch" | "spotify" | "youtube" | "youtubeMusic"} supportedSite
  */
 
-/** Looks for the track info on Apple Music
+
+/** Gets the site name based on the URL hostname
+ * 
+ * @returns {supportedSite}
+ * 
+*/
 const getSiteName = function() {
 
     const hostname = new URL(window.location.href).hostname;
@@ -63,6 +68,8 @@ const getDataPlayingSong = function() {
     }
     return itemData;
 }
+
+/** Finds the metadata of the current page item (it can be a song, album or artist)
  * 
  * @returns {itemData}
  */
