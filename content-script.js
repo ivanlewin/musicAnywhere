@@ -302,8 +302,34 @@ const getTrackInfo = function() {
     trackInfo = getTrackInfoOn(site);
     if(!trackInfo || !trackInfo.title || !trackInfo.artists.length) {
         trackInfo = getTrackInfoMediaSession();
+const cpAppleMusic = function() {
+
+    // Checks that user's on an album or artist page based on the URL, and gets the type
+    const m = window.location.href.match(/music\.apple\.com\/(?:\w{2}\/)?(?<type>album|artist)/);
+    if(!m) return
+    const type = m.groups.type;
+
+    const itemData = {
+        type,
+        "title": undefined,
+        "artists": []
+    };
+
+    // The title is an <h1> tag on both album and artist pages
+    const titleTag = document.querySelector("h1");
+    if(titleTag) {
+        itemData.title = titleTag.textContent.trim();
     }
-    return trackInfo;
+
+    if(type === "album") {
+        // Get the primary artist
+        const artistTag = document.querySelector("h2 a");
+        if(artistTag) {
+            itemData.artists.push(artistTag.textContent.trim());
+        }
+    }
+
+	return itemData;
 }
 
 /** Gets the site's name based on the URL hostname
