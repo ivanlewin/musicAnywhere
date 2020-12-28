@@ -68,6 +68,33 @@ const getDataPlayingSong = function() {
  */
 const getTrackInfoAppleMusic = function() {
     const trackInfo = {
+const getDataCurrentPage = function() {
+
+    const siteName = getSiteName();    
+    switch(siteName) {
+		case "appleMusic": {
+			return cpAppleMusic();
+		}
+		case "genius": {
+			return cpGenius();
+		}
+		case "musixmatch": {
+			return cpMusixmatch();
+		}
+		case "spotify": {
+			return cpSpotify();
+		}
+		case "youtube": {
+			return cpYouTube();
+		}
+		case "youtubeMusic": {
+			return cpYouTubeMusic();
+		}
+		default: {
+			return;
+		}
+    }
+}
         "title": undefined,
         "artists": []
     };
