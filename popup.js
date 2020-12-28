@@ -69,14 +69,6 @@ linkContainer.addEventListener("click", (e) => {
 	}
 });
 
-}
-
-// sendMsg(handleResponse);
-
-// chrome.storage.sync.get("color", function(data) {
-// 	changeColor.style.backgroundColor = data.color;
-// 	changeColor.setAttribute("value", data.color);
-// });
 
 openInDesktopBtn.addEventListener("click", (e) => {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
