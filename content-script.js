@@ -606,7 +606,7 @@ const cpYouTubeMusic = function() {
  * 
  * @returns {string} desktopURI
  */
-const getDesktopURISpotify = function() {
+const dURISpotify = function() {
     let tag = document.querySelector("a[aria-label*='Now playing:']");
     if(!tag) return;
     let url = tag.getAttribute("href"); // To prevent the concatenation of the base URL
@@ -619,7 +619,7 @@ const getDesktopURISpotify = function() {
  * 
  * @returns {string} desktopURI
  */
-const getDesktopURIAppleMusic = function () {
+const dURIAppleMusic = function () {
     const tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-last-of-type(1)");
     if(!tag) return;
     const url = tag.href;
