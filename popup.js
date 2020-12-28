@@ -45,13 +45,14 @@ const handleResponse = function(response) {
 		window.alert(`${site} | ${title} | ${artists}`);
 		console.log(`${site} | ${title} | ${artists}`);
 
-		links.forEach(tag => {
-			tag.href = getSearchURL(tag.dataset.site, title, artists);
-		})
 
 	} catch (e) {
 		console.error(e);
 	}
+const updateLinks = function(title, artists) {
+	links.forEach(tag => {
+		tag.href = getSiteURL(tag.dataset.site, title, artists);
+	})
 }
 
 linkContainer.addEventListener("click", (e) => {
