@@ -443,7 +443,40 @@ const cpMusixmatch = function() {
     return itemData;
 };
 
-/** Gets a URI that opens the current playing track on the desktop version of Spotify
+/** Extracts data from the current page on Spotify
+ * 
+ * * Only album and artist pages supported
+ * @returns {itemData}
+ */
+const cpSpotify = function() {
+
+    // Checks that user's on an album or artist page based on the URL, and gets the type
+    const m = window.location.href.match(/spotify\.com\/(?<type>album|artist)/);
+    if(!m) return
+    const type = m.groups.type;
+
+    const itemData = {
+        type,
+        "title": undefined,
+        "artists": [],
+    };
+
+    // Get title
+    const titleTag = document.querySelector("main h1");
+    if(titleTag) {
+        itemData.title = titleTag.textContent.trim();
+    }
+
+    if(type === "album") {
+        // Get the primary artist
+        const artistTag = document.querySelector("main a[href*='/artist']");
+        if(artistTag) {
+            itemData.artists.push(artistTag.textContent.trim());
+        }
+    }
+
+	return itemData;
+}
  * 
  * @returns {string} desktopURI
  */
