@@ -273,29 +273,23 @@ const getTrackInfoMediaSession = function() {
  * @param site {supportedSite}
  * 
 */
-const getTrackInfoOn = function(site) {
+const getPSFunc = function(site) {
 
     switch(site) {
 		case "appleMusic": {
-			return getTrackInfoAppleMusic();
-		}
-		case "genius": {
-			return getTrackInfoGenius();
-		}
-		case "musixmatch": {
-			return getTrackInfoMusixmatch();
+			return psAppleMusic();
 		}
 		case "spotify": {
-			return getTrackInfoSpotfiy();
+			return psSpotify();
 		}
 		case "youtube": {
-			return getTrackInfoYoutube();
+			return psYouTube();
 		}
 		case "youtubeMusic": {
-			return getTrackInfoYoutubeMusic();
+			return psYouTubeMusic();
 		}
 		default: {
-			return;
+			return psMediaSession();
 		}
 	}
 }
