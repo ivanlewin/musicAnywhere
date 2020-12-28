@@ -629,21 +629,6 @@ const dURIAppleMusic = function () {
     return desktopURI;
 }
 
-const getDesktopURI = function() {
-    const site = getSite();
-    switch(site) {
-		case "appleMusic": {
-			return getDesktopURIAppleMusic();
-		}
-		case "spotify": {
-			return getDesktopURISpotify();
-		}
-		default: {
-			return;
-		}
-	}
-}
-
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         try {
