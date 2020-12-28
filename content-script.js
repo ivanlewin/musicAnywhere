@@ -1,9 +1,9 @@
 "use strict";
 
 /**
- * @typedef {Object} trackInfo
  * @property {string} title - The track's title
  * @property {Array} artists - An array containing the track's artist(s)
+ * @typedef {Object} itemData
  */
 
 /**
