@@ -38,9 +38,6 @@ const removeFeaturingArtists = function(text) {
 	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
 }
 
-const handleResponse = function(response) {
-	try {
-		let { site, trackInfo: {title, artists} } = response;
 
 /** Sends a message to the active tab's content-script
  * telling it to run the 'fn' function
@@ -60,9 +57,6 @@ const contentScriptRun = function(fn, cb) {
 		console.log(`${site} | ${title} | ${artists}`);
 
 
-	} catch (e) {
-		console.error(e);
-	}
 const updateLinks = function(title, artists) {
 	links.forEach(tag => {
 		tag.href = getSiteURL(tag.dataset.site, title, artists);
