@@ -11,7 +11,7 @@ let site, title, artists;
  * @param {String} title
  * @param {Array<String>} artistsArr
  */
-const getSearchURL = function(site, title, artistsArr) {
+const getSiteURL = function(site, title, artistsArr) {
 	
 	const searchURLs = [
 		{site: "appleMusic", URL: "https://music.apple.com/us/search?term="},
@@ -70,9 +70,14 @@ const updateLinks = function(title, artists) {
 	})
 }
 
+// chrome.tabs.create({ url: response.desktopURI })
+
 linkContainer.addEventListener("click", (e) => {
 	if(e.target.href) {
-		chrome.tabs.create({ url: e.target.href });
+		console.log(e.target)
+		e.stopPropagation();
+		getTrackInfo();
+		// chrome.tabs.create({ url: e.target.href });
 	}
 });
 
@@ -81,3 +86,5 @@ srcForm.addEventListener("change", e => {
 	src = e.target.value;
 })
 
+getTrackInfo();
+updateLinks(title, artists);
