@@ -112,6 +112,13 @@ const getDesktopURI = function() {
 		}
 	}
 }
+
+///// Playing Song /////
+
+/** Site-specific function for finding the metadata on a song playing on Apple Music
+ * 
+ * @returns {itemData}
+ */
 const psAppleMusic = function() {
     const itemData = {
         "type": "song",
