@@ -326,9 +326,67 @@ const cpAppleMusic = function() {
 	return itemData;
 }
 
-/** Gets the site's name based on the URL hostname
+/** Extracts data from the current page on Genius
  * 
- * @returns {supportedSite}
+ * @returns {itemData}
+ */
+const cpGenius = function() {
+
+    let type;
+    // Determine if the current page is an album, artist or song page based on the URL
+    const m = window.location.href.match(/genius\.com\/(?<type>album|artist)/);
+    if(m) {
+        type = m.groups.type
+    }
+    else if(window.location.href.endsWith("-lyrics")) {
+        type = "song"
+    }
+    
+    const itemData = {
+        type,
+        "title": undefined,
+        "artists": []
+    };
+
+    if(type === "artist") {
+        const titleTag = document.querySelector("h1");
+        if(titleTag) {
+            // Only gets the textContent of the <h1>, excluding the children span
+            itemData.title = titleTag.childNodes[0].textContent.trim();
+        }
+    } else if(type === "album") {
+        const titleTag = document.querySelector("h1[class*='primary_info-title']");
+        if(titleTag) {
+            itemData.title = titleTag.textContent.trim();
+        }
+        const artistTag = document.querySelector("a[class*='primary_artist']");
+        if(artistTag) {
+            itemData.artists.push(artistTag.textContent.trim());
+        }
+    } else if(type === "song") {
+        // Get the primary artist
+        const primaryArtistTag = document.querySelector("a[class*='primary_artist']");
+        if(primaryArtistTag) {
+            const primaryArtist = primaryArtistTag.textContent.trim();
+            itemData.artists.push(primaryArtist);
+        }
+        // Get the featuring artists
+        const featuringArtistsTags = document.querySelectorAll("expandable-list[label='Featuring'] span[ng-repeat*='artist in collection'] a");
+        if(featuringArtistsTags) {
+            const tagArray = Array.from(featuringArtistsTags); // Make an array from the NodeList
+            let featuringArtists = tagArray.map(tag => tag.textContent.trim()); // Extract the names
+            itemData.artists.push(...featuringArtists);
+        }
+
+        // Get the track title
+        const titleTag = document.querySelector("h1[class*='primary_info-title']");
+        if(titleTag) {
+            itemData.title = titleTag.textContent.trim();
+        }
+    }
+
+    return itemData;
+};
  * 
 
 
