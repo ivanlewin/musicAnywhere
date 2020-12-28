@@ -1,9 +1,10 @@
 "use strict";
 
 /**
- * @property {string} title - The track's title
- * @property {Array} artists - An array containing the track's artist(s)
  * @typedef {Object} itemData
+ * @property {"song" | "album" | "artist"} type - The item type
+ * @property {string} title - The song or album title or the artist name
+ * @property {Array} artists - An array containing the song or album artist(s). Empty if type == artist
  */
 
 /**
