@@ -597,19 +597,25 @@ const cpYouTubeMusic = function() {
 
 	return itemData;
 }
+
+
+
+///// Desktop URIs /////
+
+/** Gets a URI to open the item on the current page on the Spotify Desktop App
  * 
  * @returns {string} desktopURI
  */
 const getDesktopURISpotify = function() {
     let tag = document.querySelector("a[aria-label*='Now playing:']");
     if(!tag) return;
-    let url = tag.getAttribute("href"); // To prevent the browser from appending the base URL
+    let url = tag.getAttribute("href"); // To prevent the concatenation of the base URL
 
     const desktopURI = `spotify:/${url}`;
     return desktopURI;
 }
 
-/** Gets a URI that opens the current playing track on the desktop version of Apple Music
+/** GGets a URI to open the item on the current page on the desktop version of Apple Music (or Itunes on Windows)
  * 
  * @returns {string} desktopURI
  */
