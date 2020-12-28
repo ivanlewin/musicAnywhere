@@ -52,10 +52,17 @@ const contentScriptRun = function(fn, cb) {
 			{ run : fn},
 			response => cb(response) );
 	});
-		title = removeFeaturingArtists(title);
-		window.alert(`${site} | ${title} | ${artists}`);
-		console.log(`${site} | ${title} | ${artists}`);
+}
 
+const getTrackInfo = function() {
+	contentScriptRun("getTrackInfo", trackInfo => {
+		let { title, artists } = trackInfo;
+		title = removeFeaturingArtists(title);
+		console.log(`${title} | ${artists}`);
+
+		updateLinks(title, artists);
+	})
+}
 
 const updateLinks = function(title, artists) {
 	links.forEach(tag => {
