@@ -157,9 +157,6 @@ const psAppleMusic = function() {
             }
         }
     }
-    return trackInfo;
-};
-
     return itemData;
 };
 
