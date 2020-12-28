@@ -160,14 +160,10 @@ const psAppleMusic = function() {
     return trackInfo;
 };
 
-/** Looks for the track info on Musixmatch
- * 
- * @returns {trackInfo}
- */
     return itemData;
 };
 
-/** Looks for the track info on Spotify
+/** Site-specific function for finding the metadata on a song playing on Spotify
  * 
  * @returns {itemData}
  */
@@ -195,8 +191,9 @@ const psSpotify = function() {
 	return itemData;
 };
 
+/** Site-specific function for finding the metadata on a song playing on YouTube
  * 
- * @returns {trackInfo}
+ * @returns {itemData}
  */
 const getTrackInfoYoutube = function() {
     const trackInfo = {
@@ -210,7 +207,7 @@ const psYouTube = function() {
     return itemData;
 };
 
-/** Looks for the track info on YoutubeMusic
+/** Site-specific function for finding the metadata on a song playing on YouTubeMusic
  * 
  * @returns {itemData}
  */
@@ -242,7 +239,7 @@ const getTrackInfoYoutubeMusic = function() {
     return itemData;
 };
 
-/** Looks for the track info using the MediaSession API's metadata
+/** Function for finding the metadata on the playing song using the MediaSession API
  * 
  * @returns {itemData}
  */
@@ -268,7 +265,7 @@ const getTrackInfoMediaSession = function() {
     return itemData;
 }
 
-/** Returns the appropriate function to query the site
+/** Returns the appropriate function to scrape the site for the playing song
  * 
  * @param site {supportedSite}
  * 
@@ -294,10 +291,15 @@ const getPSFunc = function(site) {
 	}
 }
 
-/** Attempts to search for the track info using the specific function or else tries using the MediaSession API
+
+
+
+///// Current page /////
+
+/** Extracts data from the current page on Apple Music
  * 
- * @param site {supportedSite}
- * @returns {trackInfo}
+ * * Only album and artist pages supported
+ * @returns {itemData}
  */
 const getTrackInfo = function() {
     const site = getSite();
