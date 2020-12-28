@@ -41,6 +41,13 @@ const removeFeaturingArtists = function(text) {
 const handleResponse = function(response) {
 	try {
 		let { site, trackInfo: {title, artists} } = response;
+const contentScriptRun = function(fn, cb) {
+	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+		chrome.tabs.sendMessage(
+			tabs[0].id,
+			{ run : fn},
+			response => cb(response) );
+	});
 		title = removeFeaturingArtists(title);
 		window.alert(`${site} | ${title} | ${artists}`);
 		console.log(`${site} | ${title} | ${artists}`);
