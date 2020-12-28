@@ -1,7 +1,6 @@
 "use strict";
 const linkContainer = document.querySelector(".link-container");
 const links = document.querySelectorAll(".link");
-const openInDesktopBtn = document.querySelector(".openDesktop");
 let site, title, artists;
 
 /** Returns a URL with a search query for the track on the given site
