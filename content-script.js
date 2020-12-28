@@ -296,12 +296,6 @@ const getPSFunc = function(site) {
  * * Only album and artist pages supported
  * @returns {itemData}
  */
-const getTrackInfo = function() {
-    const site = getSite();
-    let trackInfo;
-    trackInfo = getTrackInfoOn(site);
-    if(!trackInfo || !trackInfo.title || !trackInfo.artists.length) {
-        trackInfo = getTrackInfoMediaSession();
 const cpAppleMusic = function() {
 
     // Checks that user's on an album or artist page based on the URL, and gets the type
