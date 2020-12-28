@@ -66,7 +66,6 @@ const getDataPlayingSong = function() {
  * 
  * @returns {trackInfo}
  */
-const getTrackInfoAppleMusic = function() {
     const trackInfo = {
 const getDataCurrentPage = function() {
 
@@ -114,6 +113,7 @@ const getDesktopURI = function() {
 		}
 	}
 }
+const psAppleMusic = function() {
         "title": undefined,
         "artists": []
     };
@@ -185,33 +185,7 @@ const getTrackInfoGenius = function() {
  * 
  * @returns {trackInfo}
  */
-const getTrackInfoMusixmatch = function() {
-
-    const trackInfo = {
-        "title": undefined,
-        "artists": []
-    };
-    
-    // Get the <title> tag, which contains the title and the artists
-    const tag = document.querySelector("title");
-    if(!tag) return;
-    const playingTrack = tag.textContent;
-    const m = playingTrack.match(/(?<artists>.+) - (?<title>.+) Lyrics \| Musixmatch/);
-    if(!m) return;
-
-    // Separate into primary and featuring artists
-    let [primaryArtist, featuringArtists] = m.groups.artists.split(" feat. ");
-    trackInfo.artists.push(primaryArtist);
-    // If there are any featuring artists, push them to the array as well
-    if(featuringArtists) {
-        featuringArtists = featuringArtists.split(",");
-        trackInfo.artists.push(...featuringArtists);
-    }
-
-    const title = m.groups.title;
-    trackInfo.title = title;
-
-    return trackInfo;
+    return itemData;
 };
 
 /** Looks for the track info on Spotify
