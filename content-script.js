@@ -632,13 +632,16 @@ const dURIAppleMusic = function () {
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         try {
-            if(request.function === "getSite") {
-                const site = getSite();
-                sendResponse({ site });
-            } else if(request.function === "getTrackInfo") {
-                const trackInfo = getTrackInfo();
-                sendResponse(trackInfo);
-            } else if(request.function === "getDesktopURI") {
+            if(request.run === "getSiteName") {
+                const siteName = getSiteName();
+                sendResponse({ siteName });
+            } else if(request.run === "getDataPlayingSong") {
+                const itemData = getDataPlayingSong();
+                sendResponse(itemData);
+            } else if(request.run === "getDataCurrentPage") {
+                const itemData = getDataCurrentPage();
+                sendResponse(itemData);
+            } else if(request.run === "getDesktopURI") {
                 const desktopURI = getDesktopURI();
                 sendResponse({ desktopURI });
             }
