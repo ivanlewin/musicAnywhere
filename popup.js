@@ -41,6 +41,13 @@ const removeFeaturingArtists = function(text) {
 const handleResponse = function(response) {
 	try {
 		let { site, trackInfo: {title, artists} } = response;
+
+/** Sends a message to the active tab's content-script
+ * telling it to run the 'fn' function
+ * 
+ * @param {string} fn
+ * @param {Function} cb
+ * */
 const contentScriptRun = function(fn, cb) {
 	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 		chrome.tabs.sendMessage(
