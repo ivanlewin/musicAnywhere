@@ -192,8 +192,6 @@ const psSpotify = function() {
  * 
  * @returns {itemData}
  */
-const getTrackInfoYoutube = function() {
-    const trackInfo = {
 const psYouTube = function() {
     const itemData = {
         "type": "song",
@@ -208,7 +206,7 @@ const psYouTube = function() {
  * 
  * @returns {itemData}
  */
-const getTrackInfoYoutubeMusic = function() {
+const psYouTubeMusic = function() {
 
     const itemData = {
         "type": "song",
@@ -240,7 +238,7 @@ const getTrackInfoYoutubeMusic = function() {
  * 
  * @returns {itemData}
  */
-const getTrackInfoMediaSession = function() {
+const psMediaSession = function() {
     // Check that API is supported
     if(!"mediaSession" in navigator) {
         return;
