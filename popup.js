@@ -103,6 +103,10 @@ buttons.forEach( btn => {
 
 const main = function() {
 	
+	contentScriptRun("getSiteName", sn => {
+		if(sn) siteName = sn;
+	});
+
 // window.addEventListener("load", () => {
 // 	contentScriptRun("getSiteName", siteName => {
 // 		if(siteName) {
