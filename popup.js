@@ -38,6 +38,22 @@ const removeFeaturingArtists = function(text) {
 	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
 }
 
+/** Converts a YouTube URL to a YouTube Music one 
+ * 
+ * @param {string} url
+*/
+const youTubeToYouTubeMusic = function (url) {
+	return url.replace("www.youtube.com", "music.youtube.com");
+}
+
+/** Converts a YouTube Music URL to a YouTube one 
+ * 
+ * @param {string} url
+*/
+const youTubeToYouTubeMusic = function (url) {
+	return url.replace("music.youtube.com", "www.youtube.com");
+}
+
 
 /** Sends a message to the active tab's content-script
  * telling it to run the 'fn' function
