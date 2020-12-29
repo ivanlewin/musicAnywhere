@@ -44,9 +44,9 @@ const getDataPlayingSong = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(supportedSites.siteName && supportedSites.siteName.psFunc) {
-        const psFunc = supportedSites.siteName.psFunc;
-        itemdata = psFunc();
+    if(supportedSites[siteName] && supportedSites[siteName]["psFunc"]) {
+        const psFunc = supportedSites[siteName]["psFunc"];
+        itemData = psFunc();
     }
     
     // If the itemData is incomplete, use the MediaSession API
@@ -66,8 +66,8 @@ const getDataCurrentPage = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(supportedSites.siteName && supportedSites.siteName.cpFunc) {
-        const cpFunc = supportedSites.siteName.cpFunc;
+    if(supportedSites[siteName] && supportedSites[siteName]["cpFunc"]) {
+        const cpFunc = supportedSites[siteName]["cpFunc"];
         return cpFunc();
     }
 }
@@ -80,8 +80,8 @@ const getDesktopURI = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(supportedSites.siteName && supportedSites.siteName.dURIFunc) {
-        const dURIFunc = supportedSites.siteName.dURIFunc;
+    if(supportedSites[siteName] && supportedSites[siteName]["dURIFunc"]) {
+        const dURIFunc = supportedSites[siteName]["dURIFunc"];
         return dURIFunc();
     }
 }
@@ -206,7 +206,7 @@ const psYouTubeMusic = function() {
  */
 const psMediaSession = function() {
     // Check that API is supported
-    if(!"mediaSession" in navigator) {
+    if(navigator.mediaSession || navigator.mediaSession.metadata) {
         return;
     }
 
