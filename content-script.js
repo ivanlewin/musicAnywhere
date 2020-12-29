@@ -75,32 +75,21 @@ const getSiteName = function() {
  * @returns {itemData}
  */
 const getDataPlayingSong = function() {
-    // return psMediaSession();
-    let itemData;
+    let itemData = null;
 
     const siteName = getSiteName();
-    switch(siteName) {
-		case "appleMusic": {
-            itemData = psAppleMusic();
-            break;
-		}
-		case "spotify": {
-            itemData = psSpotify();
-            break;
-		}
-		case "youtube": {
-            itemData = psYouTube();
-            break;
-		}
-		case "youtubeMusic": {
-            itemData = psYouTubeMusic();
-            break;
-		}
+
+    // If there's a site-specific function, use it
+    if(supportedSites.siteName && supportedSites.siteName.psFunc) {
+        const psFunc = supportedSites.siteName.psFunc;
+        itemdata = psFunc();
     }
     
-    if(!itemData || !itemData.title || !itemData.artists.length) {
+    // If the itemData is incomplete, use the MediaSession API
+    if(!itemData || !itemData.type || !itemData.title || !itemData.artists.length) {
         itemData = psMediaSession();
     }
+
     return itemData;
 }
 
