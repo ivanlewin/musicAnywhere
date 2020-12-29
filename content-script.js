@@ -569,7 +569,7 @@ chrome.runtime.onMessage.addListener(
         try {
             if(request.run === "getSiteName") {
                 const siteName = getSiteName();
-                sendResponse({ siteName });
+                sendResponse(siteName);
             } else if(request.run === "getDataPlayingSong") {
                 const itemData = getDataPlayingSong();
                 sendResponse(itemData);
@@ -578,7 +578,7 @@ chrome.runtime.onMessage.addListener(
                 sendResponse(itemData);
             } else if(request.run === "getDesktopURI") {
                 const desktopURI = getDesktopURI();
-                sendResponse({ desktopURI });
+                sendResponse(desktopURI);
             }
         } catch (e) {
             console.error(e);
