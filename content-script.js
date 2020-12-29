@@ -59,7 +59,7 @@ const getDataPlayingSong = function() {
 
 /** Finds the metadata of the current page item (it can be a song, album or artist)
  * 
- * @returns {itemData}
+ * @returns {itemData | undefined}
  */
 const getDataCurrentPage = function() {
 
