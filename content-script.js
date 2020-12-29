@@ -11,6 +11,41 @@
  * @typedef {"appleMusic" | "genius" | "musixmatch" | "spotify" | "youtube" | "youtubeMusic"} supportedSite
  */
 
+/** This object stores all the sites the extension is expected to work on
+ * and serves as a guide to the site-specific functions for each one
+*/
+const supportedSites = {
+    "appleMusic": {
+        "psFunc": psAppleMusic,
+        "cpFunc": cpAppleMusic,
+        "dURIFunc": dURIAppleMusic,
+    },
+    "genius": {
+        "psFunc": null,
+        "cpFunc": cpGenius,
+        "dURIFunc": null
+    },
+    "musixmatch": {
+        "psFunc": null,
+        "cpFunc": cpMusixmatch,
+        "dURIFunc": null,
+    },
+    "spotify": {
+        "psFunc": psSpotify,
+        "cpFunc": cpSpotify,
+        "dURIFunc": dURISpotify,
+    },
+    "youtube": {
+        "psFunc": null,
+        "cpFunc": null,
+        "dURIFunc": null,
+    },
+    "youtubeMusic": {
+        "psFunc": psYouTubeMusic,
+        "cpFunc": cpYouTubeMusic,
+        "dURIFunc": null,
+    },
+}
 
 /** Gets the site name based on the URL hostname
  * 
