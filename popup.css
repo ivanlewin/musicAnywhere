@@ -2,30 +2,30 @@ body {
     font-size: 0.9rem;
 }
 
-.link-container {
+.container {
     width: max-content;
     padding: 0.5em 1em;
     display: flex;
     flex-flow: column;
 }
 
-.link {
+.search-media {
     text-decoration: none;
     color: black;
     font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.link:hover,
-.link:focus {
+.search-media:hover,
+.search-media:focus {
     color: black;
 }
 
-.link > span {
-    font-weight: bolder;
-}
-
-.links-stream,
-.links-lyrics {
+.search-stream-container,
+.search-lyrics-container {
     display: flex;
     flex-flow: column;
+}
+
+.media-type {
+    font-weight: bolder;
 }

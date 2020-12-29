@@ -10,16 +10,22 @@
 			<label for="playingSong">Playing Song</label>
 			<input type="radio" name="src" id="playingSong" value="playingSong">
 		</form>
-		<div class="link-container">
-			<div class="links-stream">
-				<button class="link" data-site="appleMusic" data-site-type="stream">Search <span>Music</span> on Apple Music</button>
-				<button class="link" data-site="spotify" data-site-type="stream">Search <span>Music</span> on Spotify</button>
-				<button class="link" data-site="youTube" data-site-type="stream">Search <span>Music</span> on YouTube</button>
-				<button class="link" data-site="youTubeMusic" data-site-type="stream">Search <span>Music</span> on YouTube Music</button>
+		<div class="container main-container">
+			<div class="container search-stream-container">
+				<button class="search-media search-stream" data-site-name="appleMusic" data-site-type="stream">
+					Search <span class="media-type"></span> on Apple Music</button>
+				<button class="search-media search-stream" data-site-name="spotify" data-site-type="stream">
+					Search <span class="media-type"></span> on Spotify</button>
+				<button class="search-media search-stream" data-site-name="youtube" data-site-type="stream">
+					Search <span class="media-type"></span> on YouTube</button>
+				<button class="search-media search-stream" data-site-name="youtubeMusic" data-site-type="stream">
+					Search <span class="media-type"></span> on YouTube Music</button>
 			</div>
-			<div class="links-lyrics">
-				<button class="link" data-site="genius" data-site-type="lyrics">Search <span>Lyrics</span> on Genius</button>
-				<button class="link" data-site="musixmatch" data-site-type="lyrics">Search <span>Lyrics</span> on Musixmatch</button>
+			<div class="container search-lyrics-container">
+				<button class="search-media search-lyrics" data-site-name="genius" data-site-type="lyrics">
+					Search <span class="media-type"></span> lyrics on Genius</button>
+				<button class="search-media search-lyrics" data-site-name="musixmatch" data-site-type="lyrics">
+					Search <span class="media-type"></span> lyrics on Musixmatch</button>
 			</div>
 		</div>
 		<script src="popup.js"></script>
