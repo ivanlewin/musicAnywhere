@@ -80,6 +80,11 @@ const updateMediaSrc = function() {
 }
 
 // chrome.tabs.create({ url: response.desktopURI })
+srcForm.addEventListener("change", e => {
+	chrome.storage.local.set({"mediaSrc": e.target.value});
+	mediaSrc = e.target.value;
+	updateMediaSrc();
+})
 
 linkContainer.addEventListener("click", (e) => {
 	if(e.target.href) {
