@@ -107,6 +107,19 @@ const main = function() {
 		if(sn) siteName = sn;
 	});
 
+	chrome.storage.local.get(["mediaSrc"], result => {
+		if(result.mediaSrc) {
+			mediaSrc = result.mediaSrc;
+		} else {
+			mediaSrc = srcForm.querySelector("input[checked]");
+		}
+
+		updateMediaSrc();
+	});
+	
+}
+
+///// Debug ////
 // window.addEventListener("load", () => {
 // 	contentScriptRun("getSiteName", siteName => {
 // 		if(siteName) {
