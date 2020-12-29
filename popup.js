@@ -24,7 +24,7 @@ const getSiteURL = function(site, title, artistsArr) {
 
 	const searchURL = searchURLs.filter(s => s.site === site)[0].URL;
 	const artists = artistsArr.join(" ");
-	const searchQuery = `${title} ${artists}`;
+	const searchQuery = `${title} ${artists}`.trim();
 
 	return searchURL + encodeURI(searchQuery);
 }
