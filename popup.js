@@ -63,20 +63,6 @@ const contentScriptRun = function(fn, cb) {
 	});
 }
 
-const getTrackInfo = function() {
-	contentScriptRun("getTrackInfo", trackInfo => {
-		let { title, artists } = trackInfo;
-		title = removeFeaturingArtists(title);
-		console.log(`${title} | ${artists}`);
-
-		updateLinks(title, artists);
-	})
-}
-
-const updateLinks = function(title, artists) {
-	links.forEach(tag => {
-		tag.href = getSiteURL(tag.dataset.site, title, artists);
-	})
 }
 
 // chrome.tabs.create({ url: response.desktopURI })
