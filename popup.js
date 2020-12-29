@@ -103,4 +103,32 @@ buttons.forEach( btn => {
 })
 
 getTrackInfo();
-updateLinks(title, artists);
+updateLinks(title, artists);///// Debug ////
+// window.addEventListener("load", () => {
+// 	contentScriptRun("getSiteName", siteName => {
+// 		if(siteName) {
+// 			window.alert(`siteName: ${siteName}`);
+// 			console.log("siteName:", siteName);
+// 		}
+// 	});
+// 	contentScriptRun("getDataPlayingSong", itemData => {
+// 		console.log("getDataPlayingSong")
+// 		if(itemData) {
+// 			const { type, title, artists } = itemData;
+// 			window.alert(`type: ${type} | title: ${title} | artists: ${artists.join(", ")}`);
+// 			console.log("type:", type);
+// 			console.log("title:", title);
+// 			console.log("artists:", artists);
+// 		}
+// 	});
+// 	contentScriptRun("getDataCurrentPage", itemData => {
+// 		console.log("getDataCurrentPage")
+// 		if(itemData) {
+// 			const { type, title, artists } = itemData;
+// 			window.alert(`type: ${type} | title: ${title} | artists: ${artists.join(", ")}`);
+// 			console.log("type:", type);
+// 			console.log("title:", title);
+// 			console.log("artists:", artists);
+// 		}
+// 	});
+// })
