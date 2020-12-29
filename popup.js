@@ -38,20 +38,13 @@ const removeFeaturingArtists = function(text) {
 	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
 }
 
-/** Converts a YouTube URL to a YouTube Music one 
+/** Converts a YouTube URL to a YouTube Music one and vice-versa
  * 
  * @param {string} url
 */
-const youTubeToYouTubeMusic = function (url) {
-	return url.replace("www.youtube.com", "music.youtube.com");
-}
-
-/** Converts a YouTube Music URL to a YouTube one 
- * 
- * @param {string} url
-*/
-const youTubeToYouTubeMusic = function (url) {
-	return url.replace("music.youtube.com", "www.youtube.com");
+const convertYouTubeAndYouTubeMusic = function (url) {
+	if(url.includes("www.youtube.com")) return url.replace("www.youtube.com", "music.youtube.com")
+	else if(url.includes("music.youtube.com")) return url.replace("music.youtube.com", "www.youtube.com")
 }
 
 
