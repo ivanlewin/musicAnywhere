@@ -1,6 +1,6 @@
 "use strict";
-const linkContainer = document.querySelector(".link-container");
-const links = document.querySelectorAll(".link");
+const btnContainer = document.querySelector(".main-container");
+const buttons = document.querySelectorAll(".search-media");
 const srcForm = document.querySelector("#source");
 let src = undefined;
 let site, title, artists;
@@ -86,18 +86,20 @@ srcForm.addEventListener("change", e => {
 	updateMediaSrc();
 })
 
-linkContainer.addEventListener("click", (e) => {
-	if(e.target.href) {
-		console.log(e.target)
-		e.stopPropagation();
-		getTrackInfo();
-		// chrome.tabs.create({ url: e.target.href });
-	}
 });
 
 srcForm.addEventListener("change", e => {
 	chrome.storage.sync.set({"infoSrc": e.target.value})
 	src = e.target.value;
+buttons.forEach( btn => {
+	btn.addEventListener("click", () => {
+		const btnSite = btn.dataset.siteName;
+		if(itemData && itemData.title && itemData.artists) {
+			const siteURL = getSiteURL(btnSite, itemData.title, itemData.artists);
+			console.log(siteURL);
+			// chrome.tabs.create({ url: siteURL });
+		}
+	})
 })
 
 getTrackInfo();
