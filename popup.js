@@ -63,6 +63,20 @@ const contentScriptRun = function(fn, cb) {
 	});
 }
 
+const updateMediaSrc = function() {
+	if(mediaSrc === "playingSong") {
+		document.querySelector("#currentPage").checked = false;
+		document.querySelector("#playingSong").checked = true;
+		contentScriptRun("getDataPlayingSong", data => {
+			itemData = data;
+		});
+	} else if(mediaSrc === "currentPage") {
+		document.querySelector("#currentPage").checked = true;
+		document.querySelector("#playingSong").checked = false;
+		contentScriptRun("getDataCurrentPage", data => {
+			itemData = data;
+		});
+	}
 }
 
 // chrome.tabs.create({ url: response.desktopURI })
