@@ -2,8 +2,9 @@
 const btnContainer = document.querySelector(".main-container");
 const buttons = document.querySelectorAll(".search-media");
 const srcForm = document.querySelector("#source");
-let src = undefined;
-let site, title, artists;
+let mediaSrc;
+let siteName;
+let itemData;
 
 /** Returns a URL with a search query for the track on the given site
  * 
