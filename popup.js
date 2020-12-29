@@ -80,7 +80,6 @@ const updateMediaSrc = function() {
 	}
 }
 
-// chrome.tabs.create({ url: response.desktopURI })
 srcForm.addEventListener("change", e => {
 	chrome.storage.local.set({"mediaSrc": e.target.value});
 	mediaSrc = e.target.value;
@@ -91,9 +90,6 @@ window.addEventListener("load", () => {
 	main();
 });
 
-srcForm.addEventListener("change", e => {
-	chrome.storage.sync.set({"infoSrc": e.target.value})
-	src = e.target.value;
 buttons.forEach( btn => {
 	btn.addEventListener("click", () => {
 		const btnSite = btn.dataset.siteName;
@@ -105,8 +101,6 @@ buttons.forEach( btn => {
 	})
 })
 
-getTrackInfo();
-updateLinks(title, artists);///// Debug ////
 const main = function() {
 	
 // window.addEventListener("load", () => {
