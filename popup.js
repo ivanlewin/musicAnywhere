@@ -86,6 +86,8 @@ srcForm.addEventListener("change", e => {
 	updateMediaSrc();
 })
 
+window.addEventListener("load", () => {
+	main();
 });
 
 srcForm.addEventListener("change", e => {
@@ -104,6 +106,8 @@ buttons.forEach( btn => {
 
 getTrackInfo();
 updateLinks(title, artists);///// Debug ////
+const main = function() {
+	
 // window.addEventListener("load", () => {
 // 	contentScriptRun("getSiteName", siteName => {
 // 		if(siteName) {
