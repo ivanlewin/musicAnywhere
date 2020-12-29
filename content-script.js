@@ -226,33 +226,6 @@ const psMediaSession = function() {
     return itemData;
 }
 
-/** Returns the appropriate function to scrape the site for the playing song
- * 
- * @param site {supportedSite}
- * 
-*/
-const getPSFunc = function(site) {
-
-    switch(site) {
-		case "appleMusic": {
-			return psAppleMusic();
-		}
-		case "spotify": {
-			return psSpotify();
-		}
-		case "youtube": {
-			return psYouTube();
-		}
-		case "youtubeMusic": {
-			return psYouTubeMusic();
-		}
-		default: {
-			return psMediaSession();
-		}
-	}
-}
-
-
 
 
 ///// Current page /////
