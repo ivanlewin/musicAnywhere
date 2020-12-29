@@ -99,29 +99,12 @@ const getDataPlayingSong = function() {
  */
 const getDataCurrentPage = function() {
 
-    const siteName = getSiteName();    
-    switch(siteName) {
-		case "appleMusic": {
-			return cpAppleMusic();
-		}
-		case "genius": {
-			return cpGenius();
-		}
-		case "musixmatch": {
-			return cpMusixmatch();
-		}
-		case "spotify": {
-			return cpSpotify();
-		}
-		case "youtube": {
-			return cpYouTube();
-		}
-		case "youtubeMusic": {
-			return cpYouTubeMusic();
-		}
-		default: {
-			return;
-		}
+    const siteName = getSiteName();
+
+    // If there's a site-specific function, use it
+    if(supportedSites.siteName && supportedSites.siteName.cpFunc) {
+        const cpFunc = supportedSites.siteName.cpFunc;
+        return cpFunc();
     }
 }
 
