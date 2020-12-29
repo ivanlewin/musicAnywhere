@@ -114,17 +114,12 @@ const getDataCurrentPage = function() {
  */
 const getDesktopURI = function() {
     const siteName = getSiteName();
-    switch(siteName) {
-		case "appleMusic": {
-			return dURIAppleMusic();
-		}
-		case "spotify": {
-			return dURISpotify();
-		}
-		default: {
-			return;
-		}
-	}
+
+    // If there's a site-specific function, use it
+    if(supportedSites.siteName && supportedSites.siteName.dURIFunc) {
+        const dURIFunc = supportedSites.siteName.dURIFunc;
+        return dURIFunc();
+    }
 }
 
 ///// Playing Song /////
