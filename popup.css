@@ -60,13 +60,11 @@ button:focus {
 
         border-color: var(--light-mode-text);
     }
-}
 
-button:hover,
-button:focus {
-    cursor: pointer;
-    /* border: none;
-    outline: none; */
+    button:hover,
+    button:focus {
+        background-color: var(--light-mode-grey);;
+    }
 }
 
 .media-type {
