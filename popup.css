@@ -58,12 +58,6 @@ button:focus {
     outline: none; */
 }
 
-.search-stream-container,
-.search-lyrics-container {
-    display: flex;
-    flex-flow: column;
-}
-
 .media-type {
     font-weight: bolder;
 }
