@@ -1,5 +1,4 @@
 "use strict";
-const btnContainer = document.querySelector(".main-container");
 const buttons = document.querySelectorAll(".search-media");
 const mediaSrcInput = document.querySelector("#mediaSrc");
 let mediaSrc;
