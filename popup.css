@@ -9,6 +9,9 @@
 }
 
 body {
+    background-color: var(--dark-mode-bg);
+    color: var(--dark-mode-text);
+
     font-size: 0.9rem;
 }
 
