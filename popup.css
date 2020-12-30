@@ -1,3 +1,13 @@
+:root {
+    --dark-mode-bg: #202124;
+    --dark-mode-dark: #292a2d;
+    --dark-mode-text: #e8eaed;
+
+    --light-mode-bg: #f8f9fa;
+    --light-mode-light: #ffffff;
+    --light-mode-text: #202124;
+}
+
 body {
     font-size: 0.9rem;
 }
