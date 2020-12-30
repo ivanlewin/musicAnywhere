@@ -89,7 +89,8 @@ const displayItemData = function() {
 		}
 	}
 
-	document.querySelector("#currentMedia").textContent = text;
+	currentMedia.textContent = text;
+	currentMedia.style.display = "initial";
 }
 
 const updateMedia = function() {
