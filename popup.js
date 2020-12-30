@@ -71,7 +71,7 @@ const contentScriptRun = function(fn, cb) {
 	});
 }
 
-const updateMediaSrc = function() {
+const updateMedia = function() {
 	if(mediaSrc === "playingSong") {
 		contentScriptRun("getDataPlayingSong", data => {
 			itemData = data;
