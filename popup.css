@@ -30,9 +30,17 @@ body {
     flex-flow: column;
 }
 
-.search-media {
-    text-decoration: none;
-    color: black;
+button {
+    background-color: var(--dark-mode-dark);
+    color: var(--dark-mode-text);
+
+    border-color: var(--dark-mode-text);
+    border-radius: 5px;
+    border-width: 1px;
+    border-style: solid;
+
+    padding: 0.4em 1.25em;
+}
 }
 
 .search-media:hover,
