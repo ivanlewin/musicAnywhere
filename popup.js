@@ -1,6 +1,7 @@
 "use strict";
 const buttons = document.querySelectorAll(".search-media");
 const mediaSrcSelect = document.querySelector("#mediaSrc");
+const currentMedia = document.querySelector("#currentMedia");
 let mediaSrc;
 let siteName;
 let itemData;
