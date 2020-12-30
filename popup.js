@@ -97,7 +97,11 @@ mediaSrcSelect.addEventListener("change", e => {
 })
 
 window.addEventListener("load", () => {
-	main();
+	chrome.tabs.executeScript(
+		null,
+		{ file: "./content-script.js" },
+		main
+	);
 });
 
 buttons.forEach( btn => {
