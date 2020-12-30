@@ -71,10 +71,31 @@ const contentScriptRun = function(fn, cb) {
 	});
 }
 
+const displayItemData = function() {
+	if(!mediaSrc || !itemData) { return }
+
+	let text = "";
+
+	if(mediaSrc === "currentPage") {
+		text += `You're looking at ${itemData.title}`;
+		if(itemData.artists.length) {
+			text += ` by ${itemData.artists.join(", ")}`;
+		}
+	} else if(mediaSrc === "playingSong") {
+		text += `You're listening to ${itemData.title}`;
+		if(itemData.artists.length) {
+			text += ` by ${itemData.artists.join(", ")}`;
+		}
+	}
+
+	document.querySelector("#currentMedia").textContent = text;
+}
+
 const updateMedia = function() {
 	if(mediaSrc === "playingSong") {
 		contentScriptRun("getDataPlayingSong", data => {
 			itemData = data;
+			displayItemData();
 		});
 
 		document.querySelector("#currentPage").selected = false;
@@ -83,6 +104,7 @@ const updateMedia = function() {
 	} else if(mediaSrc === "currentPage") {
 		contentScriptRun("getDataCurrentPage", data => {
 			itemData = data;
+			displayItemData();
 		});
 
 		document.querySelector("#currentPage").selected = true;
