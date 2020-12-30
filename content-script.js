@@ -46,7 +46,7 @@ const getDataPlayingSong = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(supportedSites[siteName] && supportedSites[siteName]["psFunc"]) {
+    if(siteName && supportedSites[siteName] && supportedSites[siteName]["psFunc"]) {
         const psFunc = supportedSites[siteName]["psFunc"];
         itemData = psFunc();
     }
@@ -68,7 +68,7 @@ const getDataCurrentPage = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(supportedSites[siteName] && supportedSites[siteName]["cpFunc"]) {
+    if(siteName && supportedSites[siteName] && supportedSites[siteName]["cpFunc"]) {
         const cpFunc = supportedSites[siteName]["cpFunc"];
         return cpFunc();
     }
