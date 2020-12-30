@@ -48,6 +48,13 @@ const convertYouTubeAndYouTubeMusic = function (url) {
 	else if(url.includes("music.youtube.com")) return url.replace("music.youtube.com", "www.youtube.com")
 }
 
+const hideSiteButton = function(site) {
+	try {
+		document.querySelector(`button#${site}-search-media`).siteButton.style.display = "none";
+	} catch(e) {
+		console.error(e);
+	}
+}
 
 /** Sends a message to the active tab's content-script
  * telling it to run the 'fn' function
