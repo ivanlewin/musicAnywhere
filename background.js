@@ -6,7 +6,7 @@ const supportedSites = [
 	{url: "www.musixmatch.com", icons: "musixmatch"},
 	{url: "open.spotify.com", icons: "spotify"},
 	{url: "www.youtube.com", icons: "youtube"},
-	{url: "music.youtube.com", icons: "youtube"},
+	{url: "music.youtube.com", icons: "youtube-music"},
 ]
 
 const createRules = function() {
