@@ -1,7 +1,7 @@
 "use strict";
 const btnContainer = document.querySelector(".main-container");
 const buttons = document.querySelectorAll(".search-media");
-const srcForm = document.querySelector("#source");
+const mediaSrcInput = document.querySelector("#mediaSrc");
 let mediaSrc;
 let siteName;
 let itemData;
@@ -66,21 +66,25 @@ const contentScriptRun = function(fn, cb) {
 
 const updateMediaSrc = function() {
 	if(mediaSrc === "playingSong") {
-		document.querySelector("#currentPage").checked = false;
-		document.querySelector("#playingSong").checked = true;
 		contentScriptRun("getDataPlayingSong", data => {
 			itemData = data;
 		});
+
+		document.querySelector("#currentPage").selected = false;
+		document.querySelector("#playingSong").selected = true;
+
 	} else if(mediaSrc === "currentPage") {
-		document.querySelector("#currentPage").checked = true;
-		document.querySelector("#playingSong").checked = false;
 		contentScriptRun("getDataCurrentPage", data => {
 			itemData = data;
 		});
+
+		document.querySelector("#currentPage").selected = true;
+		document.querySelector("#playingSong").selected = false;
 	}
 }
 
-srcForm.addEventListener("change", e => {
+mediaSrcInput.addEventListener("change", e => {
+	console.log(e.target.value)
 	chrome.storage.local.set({"mediaSrc": e.target.value});
 	mediaSrc = e.target.value;
 	updateMediaSrc();
@@ -111,7 +115,7 @@ const main = function() {
 		if(result.mediaSrc) {
 			mediaSrc = result.mediaSrc;
 		} else {
-			mediaSrc = srcForm.querySelector("input[checked]");
+			mediaSrc = mediaSrcInput.value;
 		}
 
 		updateMediaSrc();
