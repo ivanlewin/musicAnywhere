@@ -1,6 +1,6 @@
 "use strict";
 const buttons = document.querySelectorAll(".search-media");
-const mediaSrcInput = document.querySelector("#mediaSrc");
+const mediaSrcSelect = document.querySelector("#mediaSrc");
 let mediaSrc;
 let siteName;
 let itemData;
@@ -90,11 +90,10 @@ const updateMediaSrc = function() {
 	}
 }
 
-mediaSrcInput.addEventListener("change", e => {
-	console.log(e.target.value)
-	chrome.storage.local.set({"mediaSrc": e.target.value});
+mediaSrcSelect.addEventListener("change", e => {
 	mediaSrc = e.target.value;
-	updateMediaSrc();
+	chrome.storage.local.set( { mediaSrc });
+	updateMedia();
 })
 
 window.addEventListener("load", () => {
@@ -122,7 +121,7 @@ const main = function() {
 		if(result.mediaSrc) {
 			mediaSrc = result.mediaSrc;
 		} else {
-			mediaSrc = mediaSrcInput.value;
+			mediaSrc = mediaSrcSelect.value;
 		}
 
 		updateMediaSrc();
