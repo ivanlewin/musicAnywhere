@@ -41,6 +41,14 @@ button {
 
     padding: 0.4em 1.25em;
 }
+
+@media (prefers-color-scheme: light) {  
+    button {
+        background: var(--light-mode-light);
+        color: var(--light-mode-text);
+
+        border-color: var(--light-mode-text);
+    }
 }
 
 .search-media:hover,
