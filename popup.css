@@ -95,4 +95,9 @@ select#mediaSrc {
     }
 }
 
+.search-media {
+    /* height: 128px; */
+    background-image: url("images/icons/apple-music_128.png");
+    background-position-x: right;
+    background-repeat: no-repeat;
 }
