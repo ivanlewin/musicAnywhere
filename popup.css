@@ -70,3 +70,29 @@ button:focus {
 .media-type {
     font-weight: bolder;
 }
+
+select#mediaSrc {
+    background-color: var(--dark-mode-dark);
+    color: var(--dark-mode-text);
+    border-color: var(--dark-mode-text);
+    
+    border-color: var(--dark-mode-text);
+    border-width: 1px;
+    border-style: solid;
+
+    padding: 0.4em 0.5em;
+
+    width: min-content;
+    align-self: flex-end;
+}
+
+@media (prefers-color-scheme: light) {  
+    select#mediaSrc {
+        background: var(--light-mode-light);
+        color: var(--light-mode-text);
+
+        border-color: var(--light-mode-text);
+    }
+}
+
+}
