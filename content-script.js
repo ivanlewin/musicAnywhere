@@ -1,5 +1,4 @@
 "use strict";
-
 /**
  * @typedef {Object} itemData
  * @property {"song" | "album" | "artist"} type - The item type
@@ -523,6 +522,7 @@ const dURIAppleMusic = function () {
     const desktopURI = url.replace(/(https|http)/, "itmss");
     return desktopURI;
 }
+
 
 
 
