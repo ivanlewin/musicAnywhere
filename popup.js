@@ -109,8 +109,8 @@ buttons.forEach( btn => {
 		const btnSite = btn.dataset.siteName;
 		if(itemData && itemData.title && itemData.artists) {
 			const siteURL = getSiteURL(btnSite, itemData.title, itemData.artists);
-			console.log(siteURL);
-			// chrome.tabs.create({ url: siteURL });
+			if(!siteURL) return
+			chrome.tabs.create({ url: siteURL });
 		}
 	})
 })
@@ -128,7 +128,7 @@ const main = function() {
 			mediaSrc = mediaSrcSelect.value;
 		}
 
-		updateMediaSrc();
+		updateMedia();
 	});
 	
 }
