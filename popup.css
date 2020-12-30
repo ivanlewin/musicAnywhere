@@ -15,6 +15,13 @@ body {
     font-size: 0.9rem;
 }
 
+@media (prefers-color-scheme: light) {  
+    body {
+        background: var(--light-mode-bg);
+        color: var(--light-mode-text);
+    }
+}
+
 .container {
     width: max-content;
     padding: 0.5em 1em;
