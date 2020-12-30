@@ -206,7 +206,7 @@ const psYouTubeMusic = function() {
  */
 const psMediaSession = function() {
     // Check that API is supported
-    if(navigator.mediaSession || navigator.mediaSession.metadata) {
+    if(!navigator || !navigator.mediaSession || !navigator.mediaSession.metadata) {
         return;
     }
 
