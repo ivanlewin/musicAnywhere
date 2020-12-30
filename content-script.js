@@ -12,10 +12,12 @@
 
 /** Gets the site name based on the URL hostname
  * 
- * @returns {supportedSite}
+ * @returns {supportedSite | undefined}
  * 
 */
 const getSiteName = function() {
+
+    let siteName;
 
     const hostname = new URL(window.location.href).hostname;
     
@@ -28,7 +30,8 @@ const getSiteName = function() {
         {name: "youtubeMusic", hostname: "music.youtube.com"}
     ]
     
-    const siteName = sites.filter(s => s.hostname === hostname)[0].name;
+    const match = sites.filter(s => s.hostname === hostname);
+    if(match.length) siteName = match[0].name;
 
     return siteName;
 };
