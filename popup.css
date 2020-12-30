@@ -44,6 +44,15 @@ button {
     padding: 0.4em 1.25em;
 }
 
+button:hover,
+button:focus {
+    cursor: pointer;
+    background-color: var(--dark-mode-grey);
+    /* border: none;
+    outline: none; */
+}
+
+
 @media (prefers-color-scheme: light) {  
     button {
         background: var(--light-mode-light);
