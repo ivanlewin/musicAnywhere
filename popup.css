@@ -51,9 +51,11 @@ button {
     }
 }
 
-.search-media:hover,
-.search-media:focus {
-    color: black;
+button:hover,
+button:focus {
+    cursor: pointer;
+    /* border: none;
+    outline: none; */
 }
 
 .search-stream-container,
