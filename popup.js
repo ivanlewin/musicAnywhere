@@ -5,6 +5,7 @@ const mediaSrcInput = document.querySelector("#mediaSrc");
 let mediaSrc;
 let siteName;
 let itemData;
+let desktopUri;
 
 /** Returns a URL with a search query for the track on the given site
  * 
