@@ -4,12 +4,10 @@
 		<link href="popup.css", rel="stylesheet", type="text/css">
 	</head>
 	<body>
-		<form id="source">
-			<label for="currentPage">Current Page</label>
-			<input type="radio" name="src" id="currentPage" value="currentPage" checked>
-			<label for="playingSong">Playing Song</label>
-			<input type="radio" name="src" id="playingSong" value="playingSong">
-		</form>
+		<select id="mediaSrc" disabled>
+			<option id="currentPage" value="currentPage" selected>Current Page</option>
+			<option id="playingSong" value="playingSong">Playing Song</option>
+		</select>
 		<div class="container main-container">
 			<div class="container">
 				<div class="container">
