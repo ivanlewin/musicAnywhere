@@ -2,10 +2,12 @@
     --dark-mode-bg: #202124;
     --dark-mode-dark: #292a2d;
     --dark-mode-text: #e8eaed;
+    --dark-mode-grey: #37383b;
 
     --light-mode-bg: #f8f9fa;
     --light-mode-light: #ffffff;
     --light-mode-text: #202124;
+    --light-mode-grey: #c1c2c4;
 }
 
 body {
