@@ -148,20 +148,6 @@ const psSpotify = function() {
 	return itemData;
 };
 
-// /** Site-specific function for finding the metadata on a song playing on YouTube
-//  * 
-//  * @returns {itemData}
-//  */
-// const psYouTube = function() {
-//     const itemData = {
-//         "type": "song",
-//         "title": undefined,
-//         "artists": []
-//     };
-
-//     return itemData;
-// };
-
 /** Site-specific function for finding the metadata on a song playing on YouTubeMusic
  * 
  * @returns {itemData}
@@ -410,22 +396,6 @@ const cpSpotify = function() {
 
 	return itemData;
 }
-
-// /** Extracts data from the current page on YouTube
-//  * 
-//  * * Only album and artist pages supported
-//  * @returns {itemData}
-//  */
-// const cpYouTube = function() {
-
-//     const itemData = {
-//         type,
-//         "title": undefined,
-//         "artists": [],
-//     };
-
-// 	return itemData;
-// }
 
 /** Extracts data from the current page on YouTube Music
  * 
