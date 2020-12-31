@@ -584,7 +584,9 @@ const supportedSites = [
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         try {
-            if(request.run === "getSiteName") {
+            if(request.run === "test") {
+                sendResponse("ok");
+            } else if(request.run === "getSiteName") {
                 const siteName = getSiteName();
                 sendResponse(siteName);
             } else if(request.run === "getDataPlayingSong") {
