@@ -226,12 +226,18 @@ const displayItemData = function(mediaSrc, itemData) {
 	mediaTypeSpans.forEach( span => span.textContent = type); // Set the mediaType to all the span.media-type
 }
 
-const updateMedia = function() {
-	if(mediaSrc === "playingSong") {
-		contentScriptRun("getDataPlayingSong", data => {
-			itemData = data;
+const updateMedia = function(){
+	getMediaSrc()
+		.then(mediaSrc => Promise.all([mediaSrc, getItemData(mediaSrc)]) )
+		.then( ([mediaSrc, itemData]) => {
+			displayItemData(mediaSrc, itemData);
+			updateSearchMediaBtns(itemData);
+		})
+		.catch( () => { 
 			displayItemData();
+			updateSearchMediaBtns();
 		});
+}
 
 		document.querySelector("#currentPage").selected = false;
 		document.querySelector("#playingSong").selected = true;
