@@ -54,6 +54,9 @@ button:focus:not([disabled]){
     outline: none; */
 }
 
+button:disabled {
+    cursor: not-allowed;
+}
 
 @media (prefers-color-scheme: light) {
 
