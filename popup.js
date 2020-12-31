@@ -230,6 +230,11 @@ const main = function() {
 	});
 }
 
+const main = function() {
+	getSiteName();
+	getMediaSrc();
+	updateMedia();
+}
 
 
 window.addEventListener("load", () => {
