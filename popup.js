@@ -51,6 +51,7 @@ const supportedSites = {
 	}
 }
 
+///// Helpers /////
 
 /** Returns a URL with a search query for the track on the given site
  * 
@@ -102,6 +103,8 @@ const setPageActionIcon = function(siteName) {
 	}
 }
 
+
+///// Content script /////
 
 /** Sends a message to the active tab's content script
  * telling it to run the 'fn' function
@@ -166,6 +169,11 @@ const getDesktopURI = function() {
 	})
 }
 
+
+
+
+
+
 /** Tries to get the mediaSrc value from Chrome storage and falls back to the mediaSrcSelect value
  * 
  * @returns {Promise<mediaSrc>}
@@ -185,6 +193,8 @@ const getMediaSrc = function() {
 		});
 	});
 }
+
+///// Show and hide /////
 
 /** Sets or removes the text (if no media provided) in the p#currentMedia and the span.media-type
  * 
