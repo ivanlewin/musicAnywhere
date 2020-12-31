@@ -145,6 +145,27 @@ const getSiteName = function() {
 	let text = "";
 	currentMedia.textContent = text;
 	currentMedia.style.display = "hidden";
+/** Calls the content script and asks it to return an itemData object for the current media
+ * 
+ * @param {mediaSrc} mediaSrc 
+ * @returns {Promise<itemData>}
+ */
+const getItemData = function(mediaSrc) {
+	return new Promise( (resolve, reject) => {
+		if(mediaSrc === "playingSong") {
+			contentScriptRun("getDataPlayingSong", itemData => {
+				if(itemData) resolve(itemData);
+				else reject(null);
+			});
+	
+		} else if(mediaSrc === "currentPage") {
+			contentScriptRun("getDataCurrentPage", itemData => {
+				if(itemData) resolve(itemData);
+				else reject(null);
+			});
+		}
+	});
+}
 
 	if(!itemData) { return }
 
