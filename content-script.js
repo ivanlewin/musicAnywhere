@@ -18,17 +18,7 @@
 const getSiteName = function() {
 
     let siteName;
-
-    const hostname = new URL(window.location.href).hostname;
-    
-    const sites = [
-        {name: "appleMusic", hostname: "music.apple.com"},
-        {name: "genius", hostname: "genius.com"},
-        {name: "musixmatch", hostname: "www.musixmatch.com"},
-        {name: "spotify", hostname: "open.spotify.com"},
-        {name: "youtube", hostname: "www.youtube.com"},
-        {name: "youtubeMusic", hostname: "music.youtube.com"}
-    ]
+    const hostname = new URL(window.location.href).hostname; 
     
     const match = sites.filter(s => s.hostname === hostname);
     if(match.length) siteName = match[0].name;
