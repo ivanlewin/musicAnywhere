@@ -309,21 +309,21 @@ const siteSpecificActions = function(siteName) {
  * 
  * @param {Function} callback
  */
-const verifyContentScript = function(callback) {
+const verifyContentScript = function() {
 	// Sends a message to the active tab, which could have a content script already injected, listening to messages
 	contentScriptRun("test", response => {
-		// If response is ok, get on with the callback
-		if(response === "ok") callback();
+		// If response is ok, get on with main()
+		if(response === "ok") main();
 		// Checking that an error was produced while connecting with the content script, namely because it wasn't already there
 		else if(chrome.runtime.lastError) {
 			const errorMsg = chrome.runtime.lastError.message.trim();
 			// Check that it was, effectively, because it wasn't injected
 			if(errorMsg === "Could not establish connection. Receiving end does not exist.") {
-				// Inject the content script onto the tab and run the callback
+				// Inject the content script onto the tab and run main
 				chrome.tabs.executeScript(
 					null,
 					{ file: "./content-script.js" },
-					callback
+					main
 				);
 			}
 		}
