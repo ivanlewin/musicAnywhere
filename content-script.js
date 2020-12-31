@@ -472,9 +472,9 @@ const cpYouTubeMusic = function() {
         const [type_, artist, year] = metadataTag.textContent.trim().split(" • ");
         // YouTubeMusic has albums on /browse and /playlist,
         // here I check that it is an actual album and not a playlist
-        if(type_ !== "album") {
-            return
-        }
+        // if(type_ === "Playlist") {
+        //     return
+        // }
         if(metadataTag) {
             itemData.artists.push(artist);
         }
