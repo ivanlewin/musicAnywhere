@@ -211,21 +211,17 @@ buttons.forEach( btn => {
 	})
 })
 
-
-const main = function() {
-	
+const getSiteName = function() {
 	contentScriptRun("getSiteName", sn => {
-		if(sn) siteName = sn;
+		siteName = sn;
 		setPageActionIcon();
 	});
+}
 
+const getMediaSrc = function() {
 	chrome.storage.local.get(["mediaSrc"], result => {
-		if(result.mediaSrc) {
-			mediaSrc = result.mediaSrc;
-		} else {
-			mediaSrc = mediaSrcSelect.value;
-		}
-
+		if(result.mediaSrc) { mediaSrc = result.mediaSrc }
+		else { mediaSrc = mediaSrcSelect.value }
 		updateMedia();
 	});
 }
