@@ -532,39 +532,62 @@ const dURIAppleMusic = function () {
 /** This object stores all the sites the extension is expected to work on
  * and serves as a guide to the site-specific functions for each one
 */
-const supportedSites = {
-    "appleMusic": {
-        "psFunc": psAppleMusic,
-        "cpFunc": cpAppleMusic,
-        "dURIFunc": dURIAppleMusic,
+const supportedSites = [
+    {
+        name: "appleMusic",
+        hostname: "music.apple.com",
+        functions: {
+            "psFunc": psAppleMusic,
+            "cpFunc": cpAppleMusic,
+            "dURIFunc": dURIAppleMusic,
+        }
     },
-    "genius": {
-        "psFunc": null,
-        "cpFunc": cpGenius,
-        "dURIFunc": null
+    {
+        name: "genius",
+        hostname: "genius.com",
+        functions: {
+            "psFunc": null,
+            "cpFunc": cpGenius,
+            "dURIFunc": null
+        }
     },
-    "musixmatch": {
-        "psFunc": null,
-        "cpFunc": cpMusixmatch,
-        "dURIFunc": null,
+    {
+        name: "musixmatch",
+        hostname: "www.musixmatch.com",
+        functions: {
+            "psFunc": null,
+            "cpFunc": cpMusixmatch,
+            "dURIFunc": null,
+        }
     },
-    "spotify": {
-        "psFunc": psSpotify,
-        "cpFunc": cpSpotify,
-        "dURIFunc": dURISpotify,
+    {
+        name: "spotify",
+        hostname: "open.spotify.com",
+        functions: {
+            "psFunc": psSpotify,
+            "cpFunc": cpSpotify,
+            "dURIFunc": dURISpotify,
+        }
     },
-    "youtube": {
-        "psFunc": null,
-        "cpFunc": null,
-        "dURIFunc": null,
+    {
+        name: "youtube",
+        hostname: "www.youtube.com",
+        functions: {
+            "psFunc": null,
+            "cpFunc": null,
+            "dURIFunc": null,
+        }
     },
-    "youtubeMusic": {
-        "psFunc": psYouTubeMusic,
-        "cpFunc": cpYouTubeMusic,
-        "dURIFunc": null,
+    {
+        name: "youtubeMusic",
+        hostname: "music.youtube.com",
+        functions: {
+            "psFunc": psYouTubeMusic,
+            "cpFunc": cpYouTubeMusic,
+            "dURIFunc": null,
+        }
     },
-}
-
+]
 
 ///// PageAction messages /////
 chrome.runtime.onMessage.addListener(
