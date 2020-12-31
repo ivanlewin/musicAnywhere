@@ -112,12 +112,18 @@ const setPageActionIcon = function(siteName) {
  * @param {string} fn
  * @param {Function} cb
  * */
-const contentScriptRun = function(fn, cb) {
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.tabs.sendMessage(
-			tabs[0].id,
-			{ run : fn},
-			response => cb(response) );
+const contentScriptRun = function(fn) {
+	return new Promise( (resolve, reject) => {
+		chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+			chrome.tabs.sendMessage(
+				tabs[0].id,
+				{ run : fn},
+				response => {
+					if(response) resolve(response);
+					else reject(response);
+				}
+			)
+		})
 	});
 }
 
