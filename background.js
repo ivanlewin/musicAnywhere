@@ -11,39 +11,14 @@ const supportedSites = [
 
 const createRules = function() {
 	// Creates an array of rules to show the page action on the supported sites (and set the page action icon)
-	const rules = [];
-
-	for(let site of supportedSites) {
-		// createSetIconAction(site.icons, function(action) {
-		// 	const rule = {};
-		// 	rule.actions = [ new chrome.declarativeContent.ShowPageAction(), action ];
-		// 	rule.conditions = [new chrome.declarativeContent.PageStateMatcher({
-		// 		pageUrl: {hostContains: site.url}
-		// 	})];
-
-		// 	rules.push(rule);
-		// })
-		
-		const rule = {};
-		rule.actions = [new chrome.declarativeContent.ShowPageAction(),
-			// new chrome.declarativeContent.setIcon({
-			//     path: {
-			//         "16": `images/icons/${site.icons}_16.png`,
-			//         "32": `images/icons/${site.icons}_32.png`,
-			//         "48": `images/icons/${site.icons}_48.png`,
-			//         "128": `images/icons/${site.icons}_128.png`
-			//     }
-			// })
-		];
-		
-		rule.conditions = [new chrome.declarativeContent.PageStateMatcher({
-			pageUrl: {hostContains: site.url}
-		})];
-
-		rules.push(rule);
-	}
+	const rules = supportedSites.map( site => {
+		return {
+			actions: [ new chrome.declarativeContent.ShowPageAction() ],
+			conditions: [ new chrome.declarativeContent.PageStateMatcher({ pageUrl: {hostContains: site.url} }) ]
+		}
+	});
 	
-	return rules
+	return rules;
 }
 
 chrome.runtime.onInstalled.addListener(() => {
