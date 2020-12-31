@@ -102,16 +102,6 @@ const setPageActionIcon = function(siteName) {
 	}
 }
 
-/** Hides and disables the button to search the media on the same site
- * 
- * @param {supportedSite} siteName
- */
-const removeSameSiteBtn = function(siteName) {
-	const sameSiteBtn = document.querySelector(`button#${siteName}-search-media`);
-	sameSiteBtn.disabled = true;
-	sameSiteBtn.style.display = "none";
-	sameSiteBtn.onclick = null;
-}
 
 /** Sends a message to the active tab's content script
  * telling it to run the 'fn' function
@@ -225,6 +215,20 @@ const displayItemData = function(mediaSrc, itemData) {
 	currentMedia.textContent = text; // Set the text to the p#currentMedia
 	mediaTypeSpans.forEach( span => span.textContent = type); // Set the mediaType to all the span.media-type
 }
+
+/** Hides and disables the button to search the media on the same site
+ * 
+ * @param {supportedSite} siteName
+ */
+const hideSameSiteBtn = function(siteName) {
+	const sameSiteBtn = document.querySelector(`button#${siteName}-search-media`);
+	sameSiteBtn.disabled = true;
+	sameSiteBtn.style.display = "none";
+	sameSiteBtn.onclick = null;
+}
+
+
+
 
 const updateMedia = function(){
 	getMediaSrc()
