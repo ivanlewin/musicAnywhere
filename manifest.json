@@ -3,9 +3,8 @@
 	"version": "1.0",
 	"description": "A tool to connect music streaming and lyrics with one another.",
 	"permissions": ["storage", "declarativeContent", "tabs", "activeTab"],
-		"scripts": ["background.js"],
-		"persistent": false
 	"background": {
+		"scripts": ["background.js"]
 	},
 	"page_action": {
 		"default_popup": "popup.html",
