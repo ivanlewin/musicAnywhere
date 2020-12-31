@@ -55,7 +55,7 @@ const supportedSites = {
 
 /** Returns a URL with a search query for the track on the given site
  * 
- * @param {supportedSite} site
+ * @param {supportedSite} siteName
  * @param {String} title
  * @param {Array<String>} artistsArr
  */
