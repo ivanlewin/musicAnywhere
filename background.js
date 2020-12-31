@@ -1,12 +1,12 @@
 'use strict';
 
 const supportedSites = [
-	{url: "music.apple.com", icons: "apple-music"},
-	{url: "genius.com", icons: "genius"},
-	{url: "www.musixmatch.com", icons: "musixmatch"},
-	{url: "open.spotify.com", icons: "spotify"},
-	{url: "www.youtube.com", icons: "youtube"},
-	{url: "music.youtube.com", icons: "youtube-music"},
+	{hostname: "music.apple.com"},
+	{hostname: "genius.com"},
+	{hostname: "www.musixmatch.com"},
+	{hostname: "open.spotify.com"},
+	{hostname: "www.youtube.com"},
+	{hostname: "music.youtube.com"},
 ]
 
 const createRules = function() {
@@ -14,10 +14,10 @@ const createRules = function() {
 	const rules = supportedSites.map( site => {
 		return {
 			actions: [ new chrome.declarativeContent.ShowPageAction() ],
-			conditions: [ new chrome.declarativeContent.PageStateMatcher({ pageUrl: {hostContains: site.url} }) ]
+			conditions: [ new chrome.declarativeContent.PageStateMatcher({ pageUrl: {hostContains: site.hostname} }) ]
 		}
 	});
-	
+
 	return rules;
 }
 
