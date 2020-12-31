@@ -139,23 +139,22 @@ const updateMedia = function() {
 	}
 }
 
-/**
+/** Sends a test message to the content script on the active tab and loads it if it hasn't been already
  * 
  * @param {Function} callback
  */
 const verifyContentScript = function(callback) {
-
 	// Sends a message to the active tab, which could have a content script already injected, listening to messages
 	contentScriptRun("test", (response) => {
-		// If no error, just get on with the callback
-		if(response === "ok") { callback(); }
+		// If response is ok, get on with the callback
+		if(response === "ok") callback();
 		// Checking that an error was produced while connecting with the content script, namely because it wasn't already there
 		else if(chrome.runtime.lastError) {
 			const errorMsg = chrome.runtime.lastError.message.trim();
 			// Check that it was, effectively, because it wasn't injected
 			if(errorMsg === "Could not establish connection. Receiving end does not exist.") {
 				// Inject the content script onto the tab and run the callback
-				// console.log("Injecting content script");
+				console.log("Injecting content script");
 				chrome.tabs.executeScript(
 					null,
 					{ file: "./content-script.js" },
