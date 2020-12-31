@@ -58,6 +58,10 @@ button:disabled {
     cursor: not-allowed;
 }
 
+#currentMedia {
+    width: 35ch;
+}
+
 @media (prefers-color-scheme: light) {
 
     body,
@@ -125,8 +129,4 @@ button[data-site-name="musixmatch"] {
 }
 button[data-site-name="youtubeMusic"] {
     background-image: url("images/icons/youtube-music_32.png");
-}
-
-#currentMedia {
-    max-width: 40ch;
 }
