@@ -39,9 +39,16 @@ button {
     padding: 0.4em 1.25em;
 }
 
-button:hover,
-button:focus {
     cursor: pointer;
+
+    background-position-x: left;
+    background-position-y: center;
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+}
+
+button:hover:not([disabled]),
+button:focus:not([disabled]){
     background-color: var(--dark-mode-grey);
     /* border: none;
     outline: none; */
