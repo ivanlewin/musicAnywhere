@@ -301,9 +301,7 @@ const siteSpecificActions = function(siteName) {
 	}
 }
 
-
-	updateMedia();
-}
+///// Content script injection and main() /////
 
 /** Checks that the content script is present
  * Injects it if it isn't
