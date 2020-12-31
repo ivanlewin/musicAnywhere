@@ -20,6 +20,10 @@ const mediaTypeSpans = document.querySelectorAll("span.media-type");
  * @typedef {"appleMusic" | "genius" | "musixmatch" | "spotify" | "youtube" | "youtubeMusic"} supportedSite
  */
 
+/**
+ * @typedef {"currentPage" | "playingSong"} mediaSrc
+ */
+
 const supportedSites = {
 	appleMusic: {
 		icons: "apple-music",
