@@ -277,6 +277,20 @@ const updateDesktopURIBtns = function(siteName, desktopURI) {
 	}
 }
 
+const siteSpecificActions = function(siteName) {
+	if(siteName === "spotify" || siteName === "appleMusic") {
+		updateDesktopURIBtns(siteName);
+		const siteBtn = document.querySelector(`#${siteName}-open-in-desktop`);
+		getDesktopURI()
+		.then(desktopURI => {
+			siteBtn.disabled = false;
+			siteBtn.style.display = "initial";
+			siteBtn.onclick = () => { chrome.tabs.create({ url: desktopURI }) };
+		})
+		.catch(error => console.error(error))
+	}
+}
+
 const main = function() {
 	getSiteName()
 	.then(siteName => {
