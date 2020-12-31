@@ -305,10 +305,10 @@ const siteSpecificActions = function(siteName) {
 	updateMedia();
 }
 
-/** Sends a test message to the content script on the active tab and loads it if it hasn't been already
- * 
- * @param {Function} callback
- */
+/** Checks that the content script is present
+ * Injects it if it isn't
+ * and runs main
+*/
 const verifyContentScript = function() {
 	// Sends a message to the active tab, which could have a content script already injected, listening to messages
 	contentScriptRun("test", response => {
