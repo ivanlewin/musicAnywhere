@@ -309,6 +309,8 @@ const verifyContentScript = function() {
 
 
 const main = function() {
+	verifyContentScript();
+	
 	getSiteName()
 	.then(siteName => {
 		setPageActionIcon(siteName);
