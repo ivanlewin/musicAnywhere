@@ -7,6 +7,17 @@ let siteName;
 let itemData;
 let desktopUri;
 
+/**
+ * @typedef {Object} itemData
+ * @property {"song" | "album" | "artist"} type - The item type
+ * @property {string} title - The song or album title or the artist name
+ * @property {Array} artists - An array containing the song or album artist(s). Empty if type == artist
+ */
+
+/**
+ * @typedef {"appleMusic" | "genius" | "musixmatch" | "spotify" | "youtube" | "youtubeMusic"} supportedSite
+ */
+
 const supportedSites = {
 	appleMusic: {
 		icons: "apple-music",
@@ -37,7 +48,7 @@ const supportedSites = {
 
 /** Returns a URL with a search query for the track on the given site
  * 
- * @param {String} site
+ * @param {supportedSite} site
  * @param {String} title
  * @param {Array<String>} artistsArr
  */
