@@ -301,18 +301,6 @@ const siteSpecificActions = function(siteName) {
 	}
 }
 
-const main = function() {
-	getSiteName()
-	.then(siteName => {
-		setPageActionIcon(siteName);
-		hideSameSiteBtn(siteName);
-		// siteSpecificActions(siteName);
-		// return Promise.all([siteName, getDesktopURI(siteName)]);
-	})
-	// .then(([siteName, desktopURI]) => updateDesktopURIBtns(desktopURI))
-	.catch( () => {
-		updateDesktopURIBtns()
-	});
 
 	updateMedia();
 }
@@ -343,6 +331,23 @@ const verifyContentScript = function(callback) {
 }
 
 window.onload = () => { verifyContentScript(main) };
+
+const main = function() {
+	getSiteName()
+	.then(siteName => {
+		setPageActionIcon(siteName);
+		hideSameSiteBtn(siteName);
+		// siteSpecificActions(siteName);
+		// return Promise.all([siteName, getDesktopURI(siteName)]);
+	})
+	// .then(([siteName, desktopURI]) => updateDesktopURIBtns(desktopURI))
+	.catch( () => {
+		updateDesktopURIBtns()
+	});
+
+	updateMedia();
+}
+
 
 // Update the media when the mediaSrc changes
 mediaSrcSelect.addEventListener("change", e => {
