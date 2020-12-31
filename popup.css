@@ -99,6 +99,7 @@ select#mediaSrc {
     border-color: var(--dark-mode-text);
     border-width: 1px;
     border-style: solid;
+    border-radius: 5px;
 
     padding: 0.4em 0.5em;
 
