@@ -181,6 +181,26 @@ const getDesktopURI = function() {
 	})
 }
 
+/** Tries to get the mediaSrc value from Chrome storage and falls back to the mediaSrcSelect value
+ * 
+ * @returns {Promise<mediaSrc>}
+ */
+const getMediaSrc = function() {
+	return new Promise( (resolve, reject) => {
+		chrome.storage.local.get(["mediaSrc"], res => {
+			if(res.mediaSrc) {
+				// Update the <select>
+				document.querySelector(`#mediaSrc #currentPage`).selected = false;
+				document.querySelector(`#mediaSrc #playingSong`).selected = false;
+				document.querySelector(`#mediaSrc #${res.mediaSrc}`).selected = true;
+				resolve(res.mediaSrc)
+			}
+			else if(mediaSrcSelect.value) resolve(mediaSrcSelect.value)
+			else reject();
+		});
+	});
+}
+
 
 	if(mediaSrc === "currentPage") {
 		text += `You're looking at ${itemData.title}`;
