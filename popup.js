@@ -330,7 +330,6 @@ const verifyContentScript = function() {
 	});
 }
 
-window.onload = () => { verifyContentScript(main) };
 
 const main = function() {
 	getSiteName()
@@ -348,6 +347,7 @@ const main = function() {
 	updateMedia();
 }
 
+window.onload = verifyContentScript;
 
 // Update the media when the mediaSrc changes
 mediaSrcSelect.addEventListener("change", e => {
