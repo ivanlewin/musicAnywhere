@@ -139,20 +139,8 @@ const getSiteName = () => contentScriptRun("getSiteName");
  * @returns {Promise<itemData>}
  */
 const getItemData = function(mediaSrc) {
-	return new Promise( (resolve, reject) => {
-		if(mediaSrc === "playingSong") {
-			contentScriptRun("getDataPlayingSong", itemData => {
-				if(itemData) resolve(itemData);
-				else reject(null);
-			});
-	
-		} else if(mediaSrc === "currentPage") {
-			contentScriptRun("getDataCurrentPage", itemData => {
-				if(itemData) resolve(itemData);
-				else reject(null);
-			});
-		}
-	});
+	if(mediaSrc === "playingSong") return contentScriptRun("getDataPlayingSong");
+	else if(mediaSrc === "currentPage") return contentScriptRun("getDataCurrentPage");
 }
 
 /** Calls the content script and asks it to return a desktopURI link
