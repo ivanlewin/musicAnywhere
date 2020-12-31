@@ -2,10 +2,10 @@
 const buttons = document.querySelectorAll(".search-media");
 const mediaSrcSelect = document.querySelector("#mediaSrc");
 const currentMedia = document.querySelector("#currentMedia");
-let mediaSrc;
-let siteName;
-let itemData;
-let desktopUri;
+// let mediaSrc;
+// let siteName;
+// let itemData;
+// let desktopURI;
 
 /**
  * @typedef {Object} itemData
