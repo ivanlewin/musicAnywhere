@@ -76,8 +76,8 @@ button:disabled {
         border-color: var(--light-mode-text);
     }
 
-    button:not(:disabled):hover,
-    button:not(:disabled):focus {
+    button:hover:not([disabled]),
+    button:focus:not([disabled]) {
         background-color: var(--light-mode-grey);;
     }
 
