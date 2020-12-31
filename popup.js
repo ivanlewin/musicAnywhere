@@ -59,9 +59,9 @@ const supportedSites = {
  * @param {String} title
  * @param {Array<String>} artistsArr
  */
-const getSearchURL = function(site, title, artistsArr) {
-	if(site in supportedSites) {
-		const searchURL = supportedSites[site].searchURL;
+const getSearchURL = function(siteName, title, artistsArr) {
+	if(siteName in supportedSites) {
+		const searchURL = supportedSites[siteName].searchURL;
 		const artists = artistsArr.join(" ");
 		const searchQuery = `${title} ${artists}`.trim();
 	
