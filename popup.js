@@ -194,7 +194,7 @@ const getMediaSrc = function() {
 	});
 }
 
-///// Show and hide /////
+///// Show and hide items /////
 
 /** Sets or removes the text (if no media provided) in the p#currentMedia and the span.media-type
  * 
@@ -252,10 +252,6 @@ const updateMedia = function(){
 			updateSearchMediaBtns();
 		});
 }
-
-
-
-
 
 const updateSearchMediaBtns = function(itemData) {
 	if(itemData) {
