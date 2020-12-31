@@ -80,6 +80,26 @@ const convertYouTubeAndYouTubeMusic = function (url) {
 	else if(url.includes("music.youtube.com")) return url.replace("music.youtube.com", "www.youtube.com")
 }
 
+const setPageActionIcon = function() {
+	if(!siteName || !supportedSites[siteName]) {
+		return
+	}
+
+	const iconName = supportedSites[siteName].icons;
+
+	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+		chrome.pageAction.setIcon({
+			tabId: tabs[0].id,
+			path: {
+				"16": `./images/icons/${iconName}_16.png`,
+				"32": `./images/icons/${iconName}_32.png`,
+				"48": `./images/icons/${iconName}_48.png`,
+				"128": `./images/icons/${iconName}_128.png`
+			}
+		});
+	})
+}
+
 const hideSiteButton = function(site) {
 	try {
 		document.querySelector(`button#${site}-search-media`).siteButton.style.display = "none";
@@ -216,25 +236,7 @@ const main = function() {
 }
 
 
-const setPageActionIcon = function() {
-	if(!siteName || !supportedSites[siteName]) {
-		return
-	}
 
-	const iconName = supportedSites[siteName]["icons"];
-
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.pageAction.setIcon({
-			tabId: tabs[0].id,
-			path: {
-				"16": `./images/icons/${iconName}_16.png`,
-				"32": `./images/icons/${iconName}_32.png`,
-				"48": `./images/icons/${iconName}_48.png`,
-				"128": `./images/icons/${iconName}_128.png`
-			}
-		});
-	})
-}
 
 ///// Debug ////
 // window.addEventListener("load", () => {
