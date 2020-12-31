@@ -39,7 +39,7 @@ const getDataPlayingSong = function() {
     const match = supportedSites.filter(site => site.name === siteName );
     if(match.length) {
         const siteFunction = match[0]["functions"]["psFunc"];
-        itemData = siteFunction();
+        if(siteFunction) itemData = siteFunction();
     }
     
     // If the itemData is incomplete, use the MediaSession API
@@ -62,7 +62,7 @@ const getDataCurrentPage = function() {
     const match = supportedSites.filter(site => site.name === siteName );
     if(match.length) {
         const siteFunction = match[0]["functions"]["cpFunc"];
-        return siteFunction();
+        if(siteFunction) return siteFunction();
     }
 }
 
