@@ -18,13 +18,19 @@ body {
     font-size: 0.9rem;
 }
 
+.main-container {
+    padding: 0.5em;
+    width: 35ch;
 }
 
 .container {
-    width: max-content;
-    padding: 0.5em;
     display: flex;
     flex-flow: column;
+}
+
+.site-container {
+    width: 100%;
+    margin-bottom: 1em;
 }
 
 button {
@@ -35,9 +41,12 @@ button {
     border-radius: 5px;
     border-width: 1px;
     border-style: solid;
+    
+    padding: 0.5em 1.25em;
+    padding-left: 40px;
 
-    padding: 0.4em 1.25em;
-}
+    text-align: left;
+    height: 34px;
 
     cursor: pointer;
 
