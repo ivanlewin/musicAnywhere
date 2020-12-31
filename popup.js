@@ -168,6 +168,19 @@ const getItemData = function(mediaSrc) {
 }
 
 	if(!itemData) { return }
+/** Calls the content script and asks it to return a desktopURI link
+ * 
+ * @returns {Promise<String>}
+ */
+const getDesktopURI = function() {
+	return new Promise( (resolve, reject) => {
+		contentScriptRun("getDesktopURI", desktopURI => {
+			if(desktopURI) resolve(desktopURI);
+			else reject();
+		});
+	})
+}
+
 
 	if(mediaSrc === "currentPage") {
 		text += `You're looking at ${itemData.title}`;
