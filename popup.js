@@ -77,26 +77,29 @@ const removeFeaturingArtists = function(text) {
 	return text.replace(/ \((?:feat|featuring)\..*\)/, "");
 }
 
+/** Sets the PageAction icon to the logo of the site
  * 
+ * @param {supportedSite} siteName
+ */
+const setPageActionIcon = function(siteName) {
+	if(supportedSites[siteName] && supportedSites[siteName].icons) {
+		const iconName = supportedSites[siteName].icons;
 
-const setPageActionIcon = function() {
-	if(!siteName || !supportedSites[siteName]) {
-		return
-	}
-
-	const iconName = supportedSites[siteName].icons;
-
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.pageAction.setIcon({
-			tabId: tabs[0].id,
-			path: {
-				"16": `./images/icons/${iconName}_16.png`,
-				"32": `./images/icons/${iconName}_32.png`,
-				"48": `./images/icons/${iconName}_48.png`,
-				"128": `./images/icons/${iconName}_128.png`
+		chrome.tabs.query(
+			{active: true, currentWindow: true},
+			tabs => {
+				chrome.pageAction.setIcon({
+					tabId: tabs[0].id,
+					path: {
+						"16": `./images/icons/${iconName}_16.png`,
+						"32": `./images/icons/${iconName}_32.png`,
+						"48": `./images/icons/${iconName}_48.png`,
+						"128": `./images/icons/${iconName}_128.png`
+					}
+				});
 			}
-		});
-	})
+		);
+	}
 }
 
 const hideSiteButton = function(site) {
