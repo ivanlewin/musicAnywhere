@@ -20,8 +20,8 @@ const getSiteName = function() {
     let siteName;
     const hostname = new URL(window.location.href).hostname; 
     
-    const match = sites.filter(s => s.hostname === hostname);
-    if(match.length) siteName = match[0].name;
+    const match = supportedSites.filter(site => site.hostname === hostname );
+    if(match.length) { siteName = match[0]["name"] }
 
     return siteName;
 };
