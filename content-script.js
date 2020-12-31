@@ -74,9 +74,10 @@ const getDesktopURI = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(supportedSites[siteName] && supportedSites[siteName]["dURIFunc"]) {
-        const dURIFunc = supportedSites[siteName]["dURIFunc"];
-        return dURIFunc();
+    const match = supportedSites.filter(site => site.name === siteName );
+    if(match.length) {
+        const siteFunction = match[0]["functions"]["dURIFunc"];
+        if(siteFunction) return siteFunction();
     }
 }
 
