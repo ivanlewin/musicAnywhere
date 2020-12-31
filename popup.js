@@ -199,11 +199,6 @@ const verifyContentScript = function(callback) {
 	});
 }
 
-mediaSrcSelect.addEventListener("change", e => {
-	mediaSrc = e.target.value;
-	chrome.storage.local.set({ mediaSrc });
-	updateMedia();
-})
 
 buttons.forEach( btn => {
 	btn.addEventListener("click", () => {
@@ -240,3 +235,11 @@ const main = function() {
 
 window.onload = () => { verifyContentScript(main) };
 
+// Update the media when the mediaSrc changes
+mediaSrcSelect.addEventListener("change", e => {
+	const newMediaSrc = e.target.value;
+	chrome.storage.local.set(
+		{ mediaSrc: newMediaSrc },
+		updateMedia
+	);
+})
