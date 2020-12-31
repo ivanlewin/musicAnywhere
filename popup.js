@@ -238,7 +238,5 @@ const main = function() {
 }
 
 
-window.addEventListener("load", () => {
-	verifyContentScript(main);
-});
+window.onload = () => { verifyContentScript(main) };
 
