@@ -520,7 +520,6 @@ const dURIAppleMusic = function () {
 
 
 
-
 /** This object stores all the sites the extension is expected to work on
  * and serves as a guide to the site-specific functions for each one
 */
