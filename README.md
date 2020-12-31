@@ -1,6 +1,6 @@
 # musicAnywhere
 
-This is the source code for a [musicAnywhere](), a [chrome extension](https://support.google.com/chrome_webstore/answer/2664769) that offers some features to improve your music listening session.
+This is the source code for a [musicAnywhere](), a [chrome extension](https://support.google.com/chrome_webstore/answer/2664769) tool to connect music streaming and lyrics with one another.
 
 
 ### Primary features
