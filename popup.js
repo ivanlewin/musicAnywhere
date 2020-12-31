@@ -9,22 +9,28 @@ let desktopUri;
 
 const supportedSites = {
 	appleMusic: {
-		icons: "apple-music"
+		icons: "apple-music",
+		searchURL: "https://music.apple.com/us/search?term=",
 	},
     genius: {
-        icons: "genius"
+		icons: "genius",
+		searchURL: "https://genius.com/search?q=",
     },
     musixmatch: {
-        icons: "musixmatch"
+		icons: "musixmatch",
+		searchURL: "https://www.musixmatch.com/search/",
     },
     spotify: {
-        icons: "spotify"
+		icons: "spotify",
+		searchURL: "https://open.spotify.com/search/",
     },
     youtube: {
-        icons: "youtube"
+		icons: "youtube",
+		searchURL: "https://www.youtube.com/results?search_query=",
     },
     youtubeMusic: {
-		icons: "youtube-music"
+		icons: "youtube-music",
+		searchURL: "https://music.youtube.com/search?q=",
 	}
 }
 
@@ -37,14 +43,6 @@ const supportedSites = {
  */
 const getSiteURL = function(site, title, artistsArr) {
 	
-	const searchURLs = [
-		{site: "appleMusic", URL: "https://music.apple.com/us/search?term="},
-		{site: "genius", URL: "https://genius.com/search?q="},
-		{site: "musixmatch", URL: "https://www.musixmatch.com/search/"},
-		{site: "spotify", URL: "https://open.spotify.com/search/"},
-		{site: "youtube", URL: "https://www.youtube.com/results?search_query="},
-		{site: "youtubeMusic", URL: "https://music.youtube.com/search?q="}
-	]
 
 	const searchURL = searchURLs.filter(s => s.site === site)[0].URL;
 	const artists = artistsArr.join(" ");
