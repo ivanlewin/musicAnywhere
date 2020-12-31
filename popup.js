@@ -131,14 +131,7 @@ const contentScriptRun = function(fn) {
  * 
  * @returns {Promise<supportedSite>} siteName
  */
-const getSiteName = function() {
-	return new Promise( (resolve, reject) => {
-		contentScriptRun("getSiteName", siteName => {
-			if(siteName) resolve(siteName);
-			else reject();
-		});
-	})
-}
+const getSiteName = () => contentScriptRun("getSiteName");
 
 /** Calls the content script and asks it to return an itemData object for the current media
  * 
