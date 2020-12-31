@@ -535,7 +535,7 @@ const supportedSites = [
         hostname: "www.youtube.com",
         functions: {
             "psFunc": null,
-            "cpFunc": null,
+            "cpFunc": psMediaSession,
             "dURIFunc": null,
         }
     },
