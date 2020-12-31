@@ -129,6 +129,18 @@ const contentScriptRun = function(fn, cb) {
 }
 
 const displayItemData = function() {
+/** Calls the content script and asks it to return the current site name
+ * 
+ * @returns {Promise<supportedSite>} siteName
+ */
+const getSiteName = function() {
+	return new Promise( (resolve, reject) => {
+		contentScriptRun("getSiteName", siteName => {
+			if(siteName) resolve(siteName);
+			else reject();
+		});
+	})
+}
 
 	let text = "";
 	currentMedia.textContent = text;
