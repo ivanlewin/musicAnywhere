@@ -95,9 +95,12 @@ const contentScriptRun = function(fn, cb) {
 }
 
 const displayItemData = function() {
-	if(!mediaSrc || !itemData) { return }
 
 	let text = "";
+	currentMedia.textContent = text;
+	currentMedia.style.display = "hidden";
+
+	if(!itemData) { return }
 
 	if(mediaSrc === "currentPage") {
 		text += `You're looking at ${itemData.title}`;
