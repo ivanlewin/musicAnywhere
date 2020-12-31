@@ -168,6 +168,7 @@ const main = function() {
 	
 	contentScriptRun("getSiteName", sn => {
 		if(sn) siteName = sn;
+		setPageActionIcon();
 	});
 
 	chrome.storage.local.get(["mediaSrc"], result => {
