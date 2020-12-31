@@ -265,6 +265,20 @@ const updateSearchMediaBtns = function(itemData) {
 
 		document.querySelector("#currentPage").selected = true;
 		document.querySelector("#playingSong").selected = false;
+const updateDesktopURIBtns = function(siteName, desktopURI) {
+	if(desktopURI) {
+		if(siteName === "spotify" || siteName === "appleMusic") {
+			const siteBtn = document.querySelector(`#${siteName}-open-in-desktop`);
+			siteBtn.disabled = false;
+			siteBtn.style.display = "initial";
+			siteBtn.onclick = () => { chrome.tabs.create({ url: desktopURI }) };
+		}
+	} else {
+		openInDesktopBtns.forEach( btn => {
+			btn.disabled = true;
+			btn.style.display = "none";
+			btn.onclick = null;
+		})
 	}
 }
 
