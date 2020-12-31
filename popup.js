@@ -7,6 +7,28 @@ let siteName;
 let itemData;
 let desktopUri;
 
+const supportedSites = {
+	appleMusic: {
+		icons: "apple-music"
+	},
+    genius: {
+        icons: "genius"
+    },
+    musixmatch: {
+        icons: "musixmatch"
+    },
+    spotify: {
+        icons: "spotify"
+    },
+    youtube: {
+        icons: "youtube"
+    },
+    youtubeMusic: {
+		icons: "youtube-music"
+	}
+}
+
+
 /** Returns a URL with a search query for the track on the given site
  * 
  * @param {String} site
