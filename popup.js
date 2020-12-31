@@ -79,7 +79,7 @@ const hideSiteButton = function(site) {
 	}
 }
 
-/** Sends a message to the active tab's content-script
+/** Sends a message to the active tab's content script
  * telling it to run the 'fn' function
  * 
  * @param {string} fn
@@ -164,6 +164,7 @@ buttons.forEach( btn => {
 	})
 })
 
+
 const main = function() {
 	
 	contentScriptRun("getSiteName", sn => {
@@ -203,6 +204,7 @@ const setPageActionIcon = function() {
 		});
 	})
 }
+
 ///// Debug ////
 // window.addEventListener("load", () => {
 // 	contentScriptRun("getSiteName", siteName => {
