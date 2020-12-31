@@ -288,12 +288,11 @@ const siteSpecificActions = function(siteName) {
  * and runs main
 */
 const verifyContentScript = function() {
-	// Sends a message to the active tab, which could have a content script already injected, listening to messages
-	contentScriptRun("test", response => {
-		// If response is ok, get on with main()
-		if(response === "ok") main();
+	contentScriptRun("test")
+	.then(response => { if(response === "ok") main()})
+	.catch( () => {
 		// Checking that an error was produced while connecting with the content script, namely because it wasn't already there
-		else if(chrome.runtime.lastError) {
+		if(chrome.runtime.lastError) {
 			const errorMsg = chrome.runtime.lastError.message.trim();
 			// Check that it was, effectively, because it wasn't injected
 			if(errorMsg === "Could not establish connection. Receiving end does not exist.") {
