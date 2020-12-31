@@ -108,13 +108,23 @@ select#mediaSrc {
 }
 
 
+button[data-site-name="appleMusic"] {
+    background-image: url("images/icons/apple-music_32.png");
 }
-
-.search-media {
-    /* height: 128px; */
-    background-image: url("images/icons/apple-music_128.png");
-    background-position-x: right;
-    background-repeat: no-repeat;
+button[data-site-name="youtube"] {
+    background-image: url("images/icons/youtube_32.png");
+}
+button[data-site-name="genius"] {
+    background-image: url("images/icons/genius_32.png");
+}
+button[data-site-name="spotify"] {
+    background-image: url("images/icons/spotify_32.png");
+}
+button[data-site-name="musixmatch"] {
+    background-image: url("images/icons/musixmatch_32.png");
+}
+button[data-site-name="youtubeMusic"] {
+    background-image: url("images/icons/youtube-music_32.png");
 }
 
 #currentMedia {
