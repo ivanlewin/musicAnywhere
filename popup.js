@@ -282,6 +282,22 @@ const updateDesktopURIBtns = function(siteName, desktopURI) {
 	}
 }
 
+const main = function() {
+	getSiteName()
+	.then(siteName => {
+		setPageActionIcon(siteName);
+		removeSameSiteBtn(siteName);
+		// siteSpecificActions(siteName);
+		// return Promise.all([siteName, getDesktopURI(siteName)]);
+	})
+	// .then(([siteName, desktopURI]) => updateDesktopURIBtns(desktopURI))
+	.catch( () => {
+		updateDesktopURIBtns()
+	});
+
+	updateMedia();
+}
+
 /** Sends a test message to the content script on the active tab and loads it if it hasn't been already
  * 
  * @param {Function} callback
