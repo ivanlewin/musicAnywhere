@@ -1,6 +1,6 @@
 # musicAnywhere
 
-This is the source code for **musicAnywhere** (), a [chrome extension](https://support.google.com/chrome_webstore/answer/2664769) to connect music streaming and lyrics with one another.
+This is the source code for **musicAnywhere**, a [chrome extension](https://support.google.com/chrome_webstore/answer/2664769) to connect music streaming and lyrics with one another.
 
 
 ### Primary features
@@ -31,3 +31,7 @@ Let's say you're on Spotify listening to Bohemian Rhapsody by Queen, and want to
 Or let's say you're on Genius looking at the artist page of Kendrick Lamar. You would have to select **Current Page** since there's no music playing, and then click the button of your choice.
 
 Also there're some site-specific functions like **Open in desktop version**. If you're on Spotify or Apple Music, and the **Current Page** option is selected, you should see a button that, when clicked, opens the current page on the desktop app of the site (which you should have previously installed for it to work).
+
+### How to install
+As of 2020 it's not on the Chrome Web Store, so you have to clone this repo and load the *unpacked* extension
+See [here](https://developer.chrome.com/docs/extensions/mv3/getstarted/#manifest) how to
