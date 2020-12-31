@@ -128,7 +128,6 @@ const contentScriptRun = function(fn, cb) {
 	});
 }
 
-const displayItemData = function() {
 /** Calls the content script and asks it to return the current site name
  * 
  * @returns {Promise<supportedSite>} siteName
@@ -142,9 +141,6 @@ const getSiteName = function() {
 	})
 }
 
-	let text = "";
-	currentMedia.textContent = text;
-	currentMedia.style.display = "hidden";
 /** Calls the content script and asks it to return an itemData object for the current media
  * 
  * @param {mediaSrc} mediaSrc 
@@ -167,7 +163,6 @@ const getItemData = function(mediaSrc) {
 	});
 }
 
-	if(!itemData) { return }
 /** Calls the content script and asks it to return a desktopURI link
  * 
  * @returns {Promise<String>}
@@ -201,21 +196,34 @@ const getMediaSrc = function() {
 	});
 }
 
+/** Sets or removes the text (if no media provided) in the p#currentMedia and the span.media-type
+ * 
+ * @param {mediaSrc} mediaSrc 
+ * @param {itemData} itemData 
+ */
+const displayItemData = function(mediaSrc, itemData) {
 
+	let text = "";
+	let type = "";
+
+	// Reset the content of p#currentMedia and all the span.media-type
+	currentMedia.textContent = "";
+	mediaTypeSpans.forEach( span => span.textContent = "");
+	
+	// Create the message for the current media
 	if(mediaSrc === "currentPage") {
 		text += `You're looking at ${itemData.title}`;
-		if(itemData.artists.length) {
-			text += ` by ${itemData.artists.join(", ")}`;
-		}
-	} else if(mediaSrc === "playingSong") {
+		if(itemData.artists.length) { text += ` by ${itemData.artists.join(", ")}` }
+		type = itemData.type;
+	}
+	else if(mediaSrc === "playingSong") {
 		text += `You're listening to ${itemData.title}`;
-		if(itemData.artists.length) {
-			text += ` by ${itemData.artists.join(", ")}`;
-		}
+		if(itemData.artists.length) { text += ` by ${itemData.artists.join(", ")}` }
+		type = itemData.type;
 	}
 
-	currentMedia.textContent = text;
-	currentMedia.style.display = "initial";
+	currentMedia.textContent = text; // Set the text to the p#currentMedia
+	mediaTypeSpans.forEach( span => span.textContent = type); // Set the mediaType to all the span.media-type
 }
 
 const updateMedia = function() {
