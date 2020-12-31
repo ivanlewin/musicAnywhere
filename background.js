@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const supportedSites = [
 	{hostname: "music.apple.com"},
