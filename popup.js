@@ -299,7 +299,7 @@ const main = function() {
 	getSiteName()
 	.then(siteName => {
 		setPageActionIcon(siteName);
-		removeSameSiteBtn(siteName);
+		hideSameSiteBtn(siteName);
 		// siteSpecificActions(siteName);
 		// return Promise.all([siteName, getDesktopURI(siteName)]);
 	})
