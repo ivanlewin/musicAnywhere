@@ -1,7 +1,7 @@
 {
-	"name": "Getting Started Example",
+	"name": "musicAnywhere",
 	"version": "1.0",
-	"description": "Build an Extension!",
+	"description": "A tool to connect music streaming and lyrics with one another.",
 	"permissions": ["storage", "declarativeContent", "tabs", "activeTab"],
 	"background.service_worker": {
 		"scripts": ["background.js"],
