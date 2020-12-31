@@ -226,6 +226,7 @@ const updateMedia = function(){
 		.then( ([mediaSrc, itemData]) => {
 			displayItemData(mediaSrc, itemData);
 			updateSearchMediaBtns(itemData);
+			updateDesktopURIBtns();
 		})
 		.catch( () => { 
 			displayItemData();
@@ -250,21 +251,25 @@ const updateSearchMediaBtns = function(itemData) {
 	}
 }
 
-const updateDesktopURIBtns = function(siteName, desktopURI) {
-	if(desktopURI) {
-		if(siteName === "spotify" || siteName === "appleMusic") {
-			const siteBtn = document.querySelector(`#${siteName}-open-in-desktop`);
-			siteBtn.disabled = false;
-			siteBtn.style.display = "initial";
-			siteBtn.onclick = () => { chrome.tabs.create({ url: desktopURI }) };
+const updateDesktopURIBtns = function() {
+	Promise.all([getSiteName(), getDesktopURI()])
+	.then( ([siteName, desktopURI]) => {
+		if(desktopURI) {
+			if(siteName === "spotify" || siteName === "appleMusic") {
+				const siteBtn = document.querySelector(`#${siteName}-open-in-desktop`);
+				siteBtn.disabled = false;
+				siteBtn.style.display = "initial";
+				siteBtn.onclick = () => { window.open(desktopURI) };
+			}
 		}
-	} else {
+	})
+	.catch(() => {
 		openInDesktopBtns.forEach( btn => {
 			btn.disabled = true;
 			btn.style.display = "none";
 			btn.onclick = null;
 		})
-	}
+	})
 }
 
 const siteSpecificActions = function(siteName) {
