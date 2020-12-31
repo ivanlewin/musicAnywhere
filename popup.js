@@ -239,13 +239,10 @@ const updateMedia = function(){
 		});
 }
 
-		document.querySelector("#currentPage").selected = false;
-		document.querySelector("#playingSong").selected = true;
 
-	} else if(mediaSrc === "currentPage") {
-		contentScriptRun("getDataCurrentPage", data => {
-			itemData = data;
-			displayItemData();
+
+
+
 const updateSearchMediaBtns = function(itemData) {
 	if(itemData) {
 		searchMediaBtns.forEach( btn => {
@@ -263,8 +260,6 @@ const updateSearchMediaBtns = function(itemData) {
 	}
 }
 
-		document.querySelector("#currentPage").selected = true;
-		document.querySelector("#playingSong").selected = false;
 const updateDesktopURIBtns = function(siteName, desktopURI) {
 	if(desktopURI) {
 		if(siteName === "spotify" || siteName === "appleMusic") {
