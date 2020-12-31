@@ -53,13 +53,13 @@ const supportedSites = {
  * @param {Array<String>} artistsArr
  */
 const getSiteURL = function(site, title, artistsArr) {
+	if(site in supportedSites) {
+		const searchURL = supportedSites[site].searchURL;
+		const artists = artistsArr.join(" ");
+		const searchQuery = `${title} ${artists}`.trim();
 	
-
-	const searchURL = searchURLs.filter(s => s.site === site)[0].URL;
-	const artists = artistsArr.join(" ");
-	const searchQuery = `${title} ${artists}`.trim();
-
-	return searchURL + encodeURI(searchQuery);
+		return searchURL + encodeURI(searchQuery);
+	}
 }
 
 /** Removes the "feat. / featuring " info  from the given text
