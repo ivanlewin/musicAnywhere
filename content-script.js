@@ -473,7 +473,7 @@ const dURISpotify = function() {
 
     const url = window.location.href;
 
-    const desktopURI = url.replace(/(https|http)/, "spotify");
+    const desktopURI = url.replace(/(https|http)\:\/\/open.spotify.com\//, "spotify://")
     return desktopURI;
 }
 
