@@ -122,20 +122,20 @@ select#mediaSrc {
 
 
 button[data-site-name="appleMusic"] {
-    background-image: url("images/icons/apple-music_32.png");
+    background-image: url("images/site-icons/apple-music_32.png");
 }
 button[data-site-name="youtube"] {
-    background-image: url("images/icons/youtube_32.png");
+    background-image: url("images/site-icons/youtube_32.png");
 }
 button[data-site-name="genius"] {
-    background-image: url("images/icons/genius_32.png");
+    background-image: url("images/site-icons/genius_32.png");
 }
 button[data-site-name="spotify"] {
-    background-image: url("images/icons/spotify_32.png");
+    background-image: url("images/site-icons/spotify_32.png");
 }
 button[data-site-name="musixmatch"] {
-    background-image: url("images/icons/musixmatch_32.png");
+    background-image: url("images/site-icons/musixmatch_32.png");
 }
 button[data-site-name="youtubeMusic"] {
-    background-image: url("images/icons/youtube-music_32.png");
+    background-image: url("images/site-icons/youtube-music_32.png");
 }
