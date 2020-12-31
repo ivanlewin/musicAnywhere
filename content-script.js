@@ -36,9 +36,10 @@ const getDataPlayingSong = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(siteName && supportedSites[siteName] && supportedSites[siteName]["psFunc"]) {
-        const psFunc = supportedSites[siteName]["psFunc"];
-        itemData = psFunc();
+    const match = supportedSites.filter(site => site.name === siteName );
+    if(match.length) {
+        const siteFunction = match[0]["functions"]["psFunc"];
+        itemData = siteFunction();
     }
     
     // If the itemData is incomplete, use the MediaSession API
@@ -58,9 +59,10 @@ const getDataCurrentPage = function() {
     const siteName = getSiteName();
 
     // If there's a site-specific function, use it
-    if(siteName && supportedSites[siteName] && supportedSites[siteName]["cpFunc"]) {
-        const cpFunc = supportedSites[siteName]["cpFunc"];
-        return cpFunc();
+    const match = supportedSites.filter(site => site.name === siteName );
+    if(match.length) {
+        const siteFunction = match[0]["functions"]["cpFunc"];
+        return siteFunction();
     }
 }
 
