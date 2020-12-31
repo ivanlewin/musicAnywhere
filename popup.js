@@ -1,7 +1,9 @@
 "use strict";
-const buttons = document.querySelectorAll(".search-media");
+const searchMediaBtns = document.querySelectorAll("button.search-media");
+const openInDesktopBtns = document.querySelectorAll("button.open-in-desktop");
 const mediaSrcSelect = document.querySelector("#mediaSrc");
 const currentMedia = document.querySelector("#currentMedia");
+const mediaTypeSpans = document.querySelectorAll("span.media-type");
 // let mediaSrc;
 // let siteName;
 // let itemData;
