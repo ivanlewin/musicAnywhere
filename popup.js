@@ -246,7 +246,22 @@ const updateMedia = function(){
 		contentScriptRun("getDataCurrentPage", data => {
 			itemData = data;
 			displayItemData();
+const updateSearchMediaBtns = function(itemData) {
+	if(itemData) {
+		searchMediaBtns.forEach( btn => {
+			const btnSite = btn.dataset.siteName;
+			const searchURL = getSearchURL(btnSite, itemData.title, itemData.artists);
+			
+			btn.onclick = () => chrome.tabs.create({ url: searchURL });
+			btn.disabled = false;
 		});
+	} else {
+		searchMediaBtns.forEach( btn => {
+			btn.disabled = true;
+			btn.onclick = null;
+		});
+	}
+}
 
 		document.querySelector("#currentPage").selected = true;
 		document.querySelector("#playingSong").selected = false;
