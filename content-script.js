@@ -467,11 +467,13 @@ const cpYouTubeMusic = function() {
  * @returns {string} desktopURI
  */
 const dURISpotify = function() {
-    let tag = document.querySelector("a[aria-label*='Now playing:']");
-    if(!tag) return;
-    let url = tag.getAttribute("href"); // To prevent the concatenation of the base URL
+    // let tag = document.querySelector("a[aria-label*='Now playing:']");
+    // if(!tag) return;
+    // let url = tag.getAttribute("href"); // To prevent the concatenation of the base URL
 
-    const desktopURI = `spotify:/${url}`;
+    const url = window.location.href;
+
+    const desktopURI = url.replace(/(https|http)/, "spotify");
     return desktopURI;
 }
 
@@ -480,9 +482,11 @@ const dURISpotify = function() {
  * @returns {string} desktopURI
  */
 const dURIAppleMusic = function () {
-    const tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-last-of-type(1)");
-    if(!tag) return;
-    const url = tag.href;
+    // const tag = document.querySelector(".web-chrome-playback-lcd__now-playing-container a.web-chrome-playback-lcd__sub-copy-scroll-link:nth-last-of-type(1)");
+    // if(!tag) return;
+    // const url = tag.href;
+
+    const url = window.location.href;
 
     // replacing the http(s) protocol with itmss opens the URI on Apple Music or iTunes Desktop (Windows)
     const desktopURI = url.replace(/(https|http)/, "itmss");
