@@ -102,12 +102,15 @@ const setPageActionIcon = function(siteName) {
 	}
 }
 
-const hideSiteButton = function(site) {
-	try {
-		document.querySelector(`button#${site}-search-media`).siteButton.style.display = "none";
-	} catch(e) {
-		console.error(e);
-	}
+/** Hides and disables the button to search the media on the same site
+ * 
+ * @param {supportedSite} siteName
+ */
+const removeSameSiteBtn = function(siteName) {
+	const sameSiteBtn = document.querySelector(`button#${siteName}-search-media`);
+	sameSiteBtn.disabled = true;
+	sameSiteBtn.style.display = "none";
+	sameSiteBtn.onclick = null;
 }
 
 /** Sends a message to the active tab's content script
