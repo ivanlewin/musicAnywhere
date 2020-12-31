@@ -159,14 +159,7 @@ const getItemData = function(mediaSrc) {
  * 
  * @returns {Promise<String>}
  */
-const getDesktopURI = function() {
-	return new Promise( (resolve, reject) => {
-		contentScriptRun("getDesktopURI", desktopURI => {
-			if(desktopURI) resolve(desktopURI);
-			else reject();
-		});
-	})
-}
+const getDesktopURI = () => contentScriptRun("getDesktopURI");
 
 
 
