@@ -252,15 +252,21 @@ const updateSearchMediaBtns = function(itemData) {
 }
 
 const updateDesktopURIBtns = function() {
-	Promise.all([getSiteName(), getDesktopURI()])
-	.then( ([siteName, desktopURI]) => {
-		if(desktopURI) {
+	Promise.all([getMediaSrc(), getSiteName(), getDesktopURI()])
+	.then( ([mediaSrc, siteName, desktopURI]) => {
+		if(desktopURI && mediaSrc === "currentPage") {
 			if(siteName === "spotify" || siteName === "appleMusic") {
 				const siteBtn = document.querySelector(`#${siteName}-open-in-desktop`);
 				siteBtn.disabled = false;
 				siteBtn.style.display = "initial";
 				siteBtn.onclick = () => { window.open(desktopURI) };
 			}
+		} else {
+			openInDesktopBtns.forEach( btn => {
+				btn.disabled = true;
+				btn.style.display = "none";
+				btn.onclick = null;
+			})
 		}
 	})
 	.catch(() => {
