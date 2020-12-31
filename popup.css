@@ -18,11 +18,6 @@ body {
     font-size: 0.9rem;
 }
 
-@media (prefers-color-scheme: light) {  
-    body {
-        background: var(--light-mode-bg);
-        color: var(--light-mode-text);
-    }
 }
 
 .container {
@@ -53,17 +48,32 @@ button:focus {
 }
 
 
-@media (prefers-color-scheme: light) {  
-    button {
-        background: var(--light-mode-light);
-        color: var(--light-mode-text);
+@media (prefers-color-scheme: light) {
 
+    body,
+    button,
+    select#mediaSrc {
+        background: var(--light-mode-bg);
+        color: var(--light-mode-text);
+    }
+
+    button,
+    select#mediaSrc {
         border-color: var(--light-mode-text);
     }
 
-    button:hover,
-    button:focus {
+    button:not(:disabled):hover,
+    button:not(:disabled):focus {
         background-color: var(--light-mode-grey);;
+    }
+
+    select#mediaSrc {
+        background: var(--light-mode-light);
+    }
+
+    button {
+        background-repeat: no-repeat;
+        background-blend-mode: normal;
     }
 }
 
@@ -86,13 +96,7 @@ select#mediaSrc {
     align-self: flex-end;
 }
 
-@media (prefers-color-scheme: light) {  
-    select#mediaSrc {
-        background: var(--light-mode-light);
-        color: var(--light-mode-text);
 
-        border-color: var(--light-mode-text);
-    }
 }
 
 .search-media {
