@@ -323,40 +323,6 @@ const verifyContentScript = function(callback) {
 	});
 }
 
-
-buttons.forEach( btn => {
-	btn.addEventListener("click", () => {
-		const btnSite = btn.dataset.siteName;
-		if(itemData && itemData.title && itemData.artists) {
-			const siteURL = getSiteURL(btnSite, itemData.title, itemData.artists);
-			if(!siteURL) return
-			chrome.tabs.create({ url: siteURL });
-		}
-	})
-})
-
-const getSiteName = function() {
-	contentScriptRun("getSiteName", sn => {
-		siteName = sn;
-		setPageActionIcon();
-	});
-}
-
-const getMediaSrc = function() {
-	chrome.storage.local.get(["mediaSrc"], result => {
-		if(result.mediaSrc) { mediaSrc = result.mediaSrc }
-		else { mediaSrc = mediaSrcSelect.value }
-		updateMedia();
-	});
-}
-
-const main = function() {
-	getSiteName();
-	getMediaSrc();
-	updateMedia();
-}
-
-
 window.onload = () => { verifyContentScript(main) };
 
 // Update the media when the mediaSrc changes
